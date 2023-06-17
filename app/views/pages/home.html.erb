@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-video-wrapper">
+  <%= video_tag "myeventintro.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+  <div class="title-wrapper">
+    <h1 class="home"> Welcome to re3v3nt </h1>
+        <p class="toto">
+          <%= link_to "Open an existing event"%><br>
+          <%= link_to "Create  a new event", "/cars/new"%>
+    </p>
+  </div>
+</div>
