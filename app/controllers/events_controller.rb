@@ -2,24 +2,23 @@ class EventsController < ApplicationController
 
 before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
-def index
-  if params[:query].present?
-    @query = params[:query]
-    @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
-    # Preventing SQL Injection and Database error for
-    # unknown characters
-  else
-    @events = Event.all
-    @markers = @events.geocoded.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        marker_html: render_to_string(partial: "marker")
-      }
+  def index
+    if params[:query].present?
+      @query = params[:query]
+      @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @events = Event.all
+      @markers = @events.geocoded.map do |event|
+        {
+          lat: event.latitude,
+          lng: event.longitude,
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
     end
   end
-end
 
   def new
     @event = Event.new
@@ -39,7 +38,6 @@ end
   end
 
   def show
-    @event = Event.new
   end
 
   def update
@@ -59,7 +57,7 @@ end
 
 private
 
-  def even_car
+  def set_event
     @event = Event.find(params[:id])
   end
 
