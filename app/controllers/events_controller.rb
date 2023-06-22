@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-
-before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -53,17 +52,13 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
     redirect_to events_path, status: :see_other
   end
 
-  # lock an event
-
-private
+  private
 
   def set_event
     @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event.permit(:title, :address, :price, :start, :end, :status))
+    params.require(:event).permit(:title, :address, :price, :start, :end, :status)
   end
 end
-
-#il manque une description pour le event

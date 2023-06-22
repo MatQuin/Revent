@@ -1,0 +1,6 @@
+   <%= simple_form_for(@activity) do |f| %>
+          <%= f.input :description, label:"Description" %>
+          <%= f.input :start %>
+          <%= f.input :end %>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
