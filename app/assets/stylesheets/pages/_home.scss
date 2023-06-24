@@ -1,35 +1,57 @@
 .title-wrapper {
-  margin-top: 200px;
  color: white;
+ background-color: black;
+ vertical-align: top;
  text-align: center;
- position: relative;
+ font-size: small;
+ text-align: center;
 }
 
 
-.home_video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  top: 0;
-  z-index: -2;
+.row {
+  background-color: black;
 }
 
  .home-video-wrapper {
-  width: 100%;
+  width: scale;
+  height: 100%;
+  object-fit: scale-down;
+  top: 0;
+  z-index: 0;
  }
 
- .toto{
-  a{
-    line-height: 3;
-    color: white;
-    text-decoration: none;
-    border: 1px solid #e7e7e7;
-    padding: 5px;
-    border-radius: 3px;
-  }
- }
+
+
+
  a:hover {
   background-color:#a4a4a5;
   transition: 0.3s;
  }
+
+
+ .footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
