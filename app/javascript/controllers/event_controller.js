@@ -18,14 +18,27 @@ export default class extends ApplicationController {
   connect() {
   }
 
-  static targets = [ "title", "description"]
+  static targets = [ "title", "description", "start", "end"]
 
-  preview(event) {
+  previewTitle(event) {
     console.log('coucuouuuuu')
     this.titleTarget.innerText = event.target.value
-    this.descriptionTarget.innerText = event.target.value
+  }
+
+  previewDescription(event) {
+  this.descriptionTarget.innerText = event.target.value
+  }
+
+  previewStart(event) {
+    this.startTarget.innerText = event.target.value
+  }
+
+  previewEnd(event) {
+    this.endTarget.innerText = event.target.value
   }
 }
+
+
 
   /* Reflex specific lifecycle methods.
    *
