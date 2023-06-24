@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :events, only: [:new, :create]
   end
+  resources :events do
+    resources :activities, only: [:new, :create]
+  end
+  resources :events, only: [:edit, :update, :destroy, :show]
+  resources :activities, only: [:edit, :update, :destroy, :show]
 end

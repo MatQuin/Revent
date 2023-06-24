@@ -4,5 +4,23 @@
 
 import { application } from "./application"
 
+import StimulusReflex from 'stimulus_reflex'
+import consumer from '@rails/actioncable'
+import controller from '../controllers/application_controller'
+
+import ApplicationController from "./application_controller"
+application.register("application", ApplicationController)
+
+import EventController from "./event_controller"
+application.register("event", EventController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+StimulusReflex.initialize(application, { consumer, controller, isolate: true })

@@ -1,26 +1,23 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-before_action :set_event, only: [:show, :edit, :update, :destroy]
-
-
-def index
-  @events = Event.all
-  # if params[:query].present?
-  #   @query = params[:query]
-  #   @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
-  #   # Preventing SQL Injection and Database error for
-  #   # unknown characters
-  # else
-  #   @events = Event.all
-  #   @markers = @events.geocoded.map do |event|
-  #     {
-  #       lat: event.latitude,
-  #       lng: event.longitude,
-  #       marker_html: render_to_string(partial: "marker")
-  #     }
-  #   end
-  # end
-end
+  def index
+    if params[:query].present?
+      @query = params[:query]
+      @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @events = Event.all
+      @markers = @events.geocoded.map do |event|
+        {
+          lat: event.latitude,
+          lng: event.longitude,
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    end
+  end
 
   def new
     @event = Event.new
@@ -40,7 +37,6 @@ end
   end
 
   def show
-    @event = Event.new
   end
 
   def update
@@ -56,17 +52,13 @@ end
     redirect_to events_path, status: :see_other
   end
 
-  # lock an event
+  private
 
-private
-
-  def even_car
+  def set_event
     @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event.permit(:title, :address, :price, :start, :end, :status))
+    params.require(:event).permit(:title, :address, :price, :start, :end, :status)
   end
 end
-
-#il manque une description pour le event

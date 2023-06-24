@@ -1,0 +1,30 @@
+<%# <div class="container mt-5">
+  <div class="row">
+    <div class="col-8">
+      <h1>Add a new activity</h1>
+      <%= render "form" %>
+    <%# </div>
+  </div> %>
+<%# </div> %>
+
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Describe your activity</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+  <label class=" control-label" for="textinput">Start Date</label>
+
+  <input id="textinput" name="textinput" type="text" placeholder="Start Date" class="form-control input-md">
+  <span class="help-block">help</span>
+
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="control-label" for="textinput">End Date</label>
+
+  <input id="textinput" name="textinput" type="text" placeholder="End Date" class="form-control input-md">
+  <span class="help-block">help</span>
+</div>
+</form>
