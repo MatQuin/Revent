@@ -1,0 +1,7 @@
+<div class="ag-format-container">
+  <div class="ag-courses_box">
+    <% @events.each do |event| %>
+      <%= render 'events/card', event: event %>
+    <% end %>
+  </div>
+</div>
