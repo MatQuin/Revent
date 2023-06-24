@@ -12,10 +12,22 @@
     </div>
   <% end %>
 
-  <div class="my-5">
+  <div class="row">
     <%= form.label :title %>
     <%= form.text_field(
       :title,
+      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+      data: {
+        action: "input->event#preview"
+      }
+    ) %>
+  </div>
+
+  <div class="row">
+    <%= form.label :description %>
+    <%= form.text_area(
+      :description,
+      rows: 4,
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
       data: {
         action: "change->event#preview"
@@ -23,10 +35,22 @@
     ) %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area(
-      :description,
+  <div class="row">
+    <%= form.label :start %>
+    <%= form.date_field(
+      :start,
+      rows: 4,
+      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+      data: {
+        action: "input->event#preview"
+      }
+    ) %>
+  </div>
+
+  <div class="row">
+    <%= form.label :end %>
+    <%= form.date_field(
+      :start,
       rows: 4,
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
       data: {
