@@ -1,12 +1,24 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.buttonsuper {
+  padding: 17px 40px;
+  border-radius: 10px;
+  margin: 20px;
+  border: 0;
+  background-color: rgb(255, 56, 86);
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  transition: all .3s ease;
+  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+  color: hsl(0, 0%, 100%);
+ }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+ .buttonsuper:hover {
+  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+ }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+ .buttonsuper:active {
+  background-color: rgb(255, 56, 86);
+  /*50, 168, 80*/
+  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+  transform: translateY(5px);
+  transition: 200ms;
+ }
