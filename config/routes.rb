@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :events, only: [:edit, :update, :destroy]
+  resources :events, only: [:index, :edit, :update, :destroy]
   resources :users do
     resources :events, only: [:new, :create]
   end

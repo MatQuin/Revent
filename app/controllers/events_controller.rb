@@ -4,21 +4,22 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
 def index
-  if params[:query].present?
-    @query = params[:query]
-    @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
-    # Preventing SQL Injection and Database error for
-    # unknown characters
-  else
-    @events = Event.all
-    @markers = @events.geocoded.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        marker_html: render_to_string(partial: "marker")
-      }
-    end
-  end
+  @events = Event.all
+  # if params[:query].present?
+  #   @query = params[:query]
+  #   @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
+  #   # Preventing SQL Injection and Database error for
+  #   # unknown characters
+  # else
+  #   @events = Event.all
+  #   @markers = @events.geocoded.map do |event|
+  #     {
+  #       lat: event.latitude,
+  #       lng: event.longitude,
+  #       marker_html: render_to_string(partial: "marker")
+  #     }
+  #   end
+  # end
 end
 
   def new
