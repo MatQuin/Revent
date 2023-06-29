@@ -19,7 +19,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/123788157?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Event", "#", class: "dropdown-item" %>
+              <%= link_to "Event", events_path, class: "dropdown-item" %>
               <% if user_signed_in? == true %>
                 <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               <% end %>

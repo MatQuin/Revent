@@ -8,12 +8,13 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @event = Event.find(params[:event_id])
   end
 
   def create
     @activity = Activity.new(activity_params)
     @activity.user = current_user
-    @event = Event.find(params[:car_id])
+    @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
       redirect_to dashboard_path
