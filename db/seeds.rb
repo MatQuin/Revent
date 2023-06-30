@@ -6,15 +6,46 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!(email:"auroraemu@gmail.com", password:"revent")
+# User.create!(email:"auroraemu@gmail.com", password:"revent")
+# Guest.destroy_all
+# Event.destroy_all
+# User.destroy_all
 
-Event.create!(
-  user: User.first,
+user1 = User.new(
+  email: 'totouuuu@gmail.com',
+  password: 'tototo1'
+)
+
+user1.save
+user1.valid?
+
+event1 = Event.new(
   title: 'Anniversaire de mamie',
   status: 'to_come',
-  start: Date.today + 3.days,
-  end: Date.today + 4.jours,
+  start: Date.today + 3,
+  end: Date.today + 4,
   address: '16 Villa Gaudelet'
 )
-Event.create!(address:"68 avenue Parmentier", start: "20/07/2023", end: "21/07/2023", user_id: 1, title: "Soiree", status: true)
-Event.create!(address:"67 avenue Parmentier", start: "21/07/2023", end: "22/07/2023", user_id: "1", title: "Soiree", status: true)
+
+event1.user = user1
+event1.save
+
+# Event.create!(address:"68 avenue Parmentier", start: "20/07/2023", end: "21/07/2023", user_id: 1, title: "Soiree", status: true)
+# Event.create!(address:"67 avenue Parmentier", start: "21/07/2023", end: "22/07/2023", user_id: "1", title: "Soiree", status: true)
+
+
+guest1 = Guest.new()
+guest1.user = user1
+guest1.event = event1
+
+guest1.save
+
+activity1 = Activity.new(
+  description: 'EVG de Ken',
+  start: Date.today,
+  end: Date.today + 2
+)
+
+activity1.guest = guest1
+activity1.event = event1
+activity1.save
