@@ -1,0 +1,29 @@
+
+<!-- Button trigger modal -->
+<button class="buttonsuper" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<p> Add <%= name %> </p>
+</button>
+
+<!-- Modal tout les databs je garde , les class, id rajouter oui, retirer non -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add guest</h1>
+        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%#=PASTOUCHE simple_form_for [event, guest] do |f| %>
+          <%#= f.association :user, collection: User.all(order: 'first_name'), label:"first_name" %>
+          <%#= f.submit "Submit", class:"buttonsuper" %>
+        <%# end %>
+        Search for a friend
+      </div>
+      <div class="modal-footer">
+      <button class="buttonsuper" >
+      <p> submit fake </p>
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

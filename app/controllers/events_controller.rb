@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @guest = Guest.new
   end
 
   def create
