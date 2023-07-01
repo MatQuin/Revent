@@ -12,7 +12,7 @@
            <div class="d-grid gap-2 col-4 mx-auto">
            <div class="buttonsuper">
             <% if user_signed_in? == true %>
-            <%= link_to "Create an Event", new_user_event_path(current_user) %>
+            <%= link_to "Start right now !", new_user_event_path(current_user) %>
             <% else %>
             <%= link_to "Sign in", new_user_session_path %>
            <% end %>

@@ -1,17 +1,38 @@
 
-<div class="container">
+<%# <div class="container">
   <div class="row" data-controller="event">
     <div class="col-8">
      <%= render "form", activity:  @activity, event: @event %>
-    </div>
+   <%# </div>
       <div class="col-4" class="card">
         <%= render "events/preview", post: @event %>
-      </div>
+     <%# </div>
         <div class="d-grid gap-2 col-4 mx-auto">
+        <div class="buttonsuper">
+          <%= link_to "FINISH", event_activities_path(@event)%>
+       <%# </div>
+    </div>
+
+  </div>
+</div><%> <%# vieux code 01/07/23<%>
+
+
+<div class="container">
+
+  <div class="row" data-controller="event">
+    <div class="col-4">
+      <%= render "form", activity:  @activity, event: @event %>
+    </div>
+
+    <div id="event-preview" class="col-6">
+      <div class="card">
+        <%= render "preview", post: @event %>
+      </div>
+    </div>
+  </div>
+ <div class="d-grid gap-2 col-4 mx-auto">
         <div class="buttonsuper">
           <%= link_to "FINISH", event_activities_path(@event)%>
         </div>
     </div>
-
-  </div>
 </div>
