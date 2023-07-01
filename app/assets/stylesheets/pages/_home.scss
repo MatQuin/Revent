@@ -9,7 +9,6 @@
 
 }
 
-
 .row {
   background-color: black;
 }
@@ -20,24 +19,20 @@
   object-fit: scale-down;
   top: 0;
   z-index: 0;
-  
+  margin: 10px, 10px;
  }
-
-
-
 
  a:hover {
   background-color:black;
   transition: 0.3s;
  }
 
-
  .footer {
   background: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
   padding: 0px 50px;
   color: white;
 }

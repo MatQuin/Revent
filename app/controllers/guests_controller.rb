@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  def new
-    @guest = Guest.new
+  def create
+    raise
   end
 end

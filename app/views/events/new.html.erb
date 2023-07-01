@@ -19,35 +19,9 @@
 
     <div id="event-preview" class="col-8">
       <div class="card">
-      <%= render "preview", post: @event %>
-    </div>
-
-<!-- Button trigger modal -->
-<button type="button" class="buttonsuper" data-bs-toggle="modal" data-bs-target="#exampleModal">
- Add guest
-</button>
-
-<!-- Modal tout les databs je garde , les class, id rajouter oui, retirer non -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add guest</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <%= render "preview", post: @event %>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="buttonsuper">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+      <%= render 'modal_guest', name: "Guest", guest: @guest, event: @event %>
     </div>
   </div>
 </div>
