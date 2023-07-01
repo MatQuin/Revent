@@ -12,6 +12,11 @@
         <span class="ag-courses-item_date">
           <%= event.start %>
         </span>
+          <% if event.photo.attached? %>
+            <%= cl_image_tag event.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://avatars.githubusercontent.com/u/123788157?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
       </div>
     </a>
   </div>
