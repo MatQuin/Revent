@@ -19,7 +19,7 @@ class ActivitiesController < ApplicationController
     @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
-      redirect_to new_event_activity(@event)
+      redirect_to new_event_activity_path(@event)
     else
       render :new, status: :unprocessable_entity
     end
