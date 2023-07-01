@@ -3,7 +3,8 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activities = Activity.all
+    @event = Event.find(params[:event_id])
+    @activities = Activity.where(event: @event)
   end
 
   def new
@@ -13,14 +14,13 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.user = current_user
+    @activity.guest = Guest.where(user: current_user).first
     @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
-      redirect_to dashboard_path
+      redirect_to new_event_activity(@event)
     else
-  #    render :new, status: :unprocessable_entity
-    render "event/show", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -50,7 +50,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:start, :end)
+    params.require(:activity).permit(:start, :end, :description)
   end
 
   end
