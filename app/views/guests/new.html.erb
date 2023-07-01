@@ -1,0 +1,10 @@
+<div>
+  <%= @event.title %>
+  <% @event.guests.each do |guest| %>
+    <%= guest.user.email %>
+  <% end %>
+</div>
+
+<%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+
+<%= link_to "next step", new_event_activity_path(@event) %>

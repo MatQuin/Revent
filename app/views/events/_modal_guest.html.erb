@@ -13,16 +13,10 @@
         <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <%#=PASTOUCHE simple_form_for [event, guest] do |f| %>
-          <%#= f.association :user, collection: User.all(order: 'first_name'), label:"first_name" %>
-          <%#= f.submit "Submit", class:"buttonsuper" %>
-        <%# end %>
-        Search for a friend
-      </div>
-      <div class="modal-footer">
-      <button class="buttonsuper" >
-      <p> submit fake </p>
-      </button>
+        <%= simple_form_for [event, guest] do |f| %>
+          <%= f.association :user, collection: User.all.order(:email), label_method: :email, value_method: :id %>
+          <%= f.submit "Submit", class:"buttonsuper" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   end
   resources :events, only: [:edit, :update, :destroy, :show]
   resources :activities, only: [:edit, :update, :destroy, :show]
-  resources :guests
 end
