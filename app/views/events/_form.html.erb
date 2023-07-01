@@ -13,9 +13,10 @@
   <% end %>
 
   <div class="row">
-    <%= form.label :title %>
+    <%= form.label :title%>
     <%= form.text_field(
       :title,
+      :placeholder => "Title",
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
       data: {
         action: "input->event#previewTitle"
@@ -27,6 +28,7 @@
     <%= form.label :description %>
     <%= form.text_area(
       :description,
+      :placeholder => "Description",
       rows: 4,
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
       data: {
@@ -58,6 +60,18 @@
       }
     ) %>
   </div>
+
+  <div class="row">
+    <%= form.label :photo %>
+    <%= form.file_field(
+      :photo, class: "input",
+      data: {
+        action: "input->event#previewPhoto"
+      }
+    ) %>
+  </div>
+
+
   <div class="inline">
     <%= form.submit class: 'buttonsuper' %>
   </div>
