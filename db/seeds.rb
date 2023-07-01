@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # User.create!(email:"auroraemu@gmail.com", password:"revent")
-# Guest.destroy_all
-# Event.destroy_all
-# User.destroy_all
+Guest.destroy_all
+Event.destroy_all
+User.destroy_all
 
 user1 = User.new(
   email: 'totouuuu@gmail.com',

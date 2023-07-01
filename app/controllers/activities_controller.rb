@@ -4,7 +4,8 @@ class ActivitiesController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @activities = Activity.where(event: @event)
+    @activities = @event.activities
+    @guest_activity = GuestActivity.new
   end
 
   def new
