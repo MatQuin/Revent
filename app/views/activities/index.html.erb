@@ -1,1 +1,20 @@
-A FAIREEEE !!!!!!
+
+<div class="container">
+  <h1>Activities List</h1>
+   <% @activities.each do |activity| %>
+    <div class="row">
+      <div class="col-sm">
+        <p>Description</p>
+        <p><%= activity.description %></p>
+      </div>
+      <div class="col-sm">
+        <p>Start</p>
+        <p><%= activity.end %></p>
+      </div>
+      <div class="col-sm">
+        <p>End</p>
+        <p><%= activity.end %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
