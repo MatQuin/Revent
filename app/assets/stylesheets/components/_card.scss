@@ -24,8 +24,7 @@
   margin: 0 15px 30px;
 
   overflow: hidden;
-
-  border-radius: 28px;
+//border-radius: 28px; lui ça bouffe le texte dans les cards, on le laisse en comm(auror)
 }
 .ag-courses-item_link {
   display: block;
@@ -142,4 +141,3 @@
     font-size: 16px;
   }
 }
-
