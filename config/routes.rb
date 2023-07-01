@@ -6,15 +6,13 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :events, only: [:index, :edit, :update, :destroy]
   resources :users do
     resources :events, only: [:new, :create]
   end
-  resources :events do
+  resources :events, only: [:edit, :update, :destroy, :show, :index] do
     resources :guests, only: [:new, :create]
-    resources :activities, only: [:new, :create]
+    resources :activities, only: [:new, :create, :index]
   end
-  resources :events, only: [:edit, :update, :destroy, :show]
+
   resources :activities, only: [:edit, :update, :destroy, :show]
-  resources :guests
 end
