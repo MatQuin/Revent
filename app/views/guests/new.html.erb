@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row" data-controller="guest">
-    <div class="col-4">
-      <H2><%= @event.title %></H2>
-      <p>Guests list</p>
-      <ul>
-      <% @event.guests.each do |guest| %>
-      <li>
-        <%= guest.user.email %>
-      </li>
-      <% end %>
-      </ul>
+
+<div id="event-preview" class="col-8">
+      <div class="card">
+        <%= render "events/preview", post: @event %>
+        <div>
+          <%= @event.title %>
+          <% @event.guests.each do |guest| %>
+          <%= guest.user.email %>
+          <% end %>
+        </div>
+      <div class="d-grid gap-2 col-4 mx-auto">
+      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+      </div>
+      </div>
     </div>
 
     <div class="col-8">
