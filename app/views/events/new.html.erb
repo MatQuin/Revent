@@ -13,11 +13,12 @@
 
 <div class="container">
   <div class="row" data-controller="event">
+
     <div class="col-4">
       <%= render "form", post: @event %>
     </div>
 
-    <div id="event-preview" class="col-8">
+    <div id="event-preview" class="col-6">
       <div class="card">
         <%= render "preview", post: @event %>
       </div>
