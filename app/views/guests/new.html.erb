@@ -1,10 +1,18 @@
-<div>
-  <%= @event.title %>
-  <% @event.guests.each do |guest| %>
-    <%= guest.user.email %>
-  <% end %>
-</div>
 
-<%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+
+<div id="event-preview" class="col-8">
+      <div class="card">
+        <%= render "events/preview", post: @event %>
+        <div>
+          <%= @event.title %>
+          <% @event.guests.each do |guest| %>
+          <%= guest.user.email %>
+          <% end %>
+        </div>
+      <div class="d-grid gap-2 col-4 mx-auto">
+      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+      </div>
+      </div>
+    </div>
 
 <%= link_to "next step", new_event_activity_path(@event) %>
