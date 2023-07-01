@@ -9,7 +9,7 @@
     <div class="title-wrapper">
       <h1> Welcome to </h1> <img src="/assets/Re3v3nt_white-a80cbb9162147a7f2415519767f24af9bc55d7bbe8a698ec9a24bf24a405f95a.png" >
         <p><br>Tracking an event was never this easy. Re3v3nt app is built for the organizers who wants to grow their event reach and manage it easily. Our valued event organizers are now using it to keep a record of every attendee and manage activities for each just at the touch of a screen</p>
-        <%= link_to "Join the experience", new_event_path %>
+        <%= link_to "Join the experience", user_events_path(current_user) %>
     </div>
   </div>
 
