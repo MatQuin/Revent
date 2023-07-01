@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @user = User.find(params['user_id'])
   end
 
   def create
