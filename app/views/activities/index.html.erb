@@ -4,16 +4,25 @@
    <% @activities.each do |activity| %>
     <div class="row">
       <div class="col-sm">
-        <p>Description</p>
+        <h2>Description</h2>
         <p><%= activity.description %></p>
       </div>
       <div class="col-sm">
-        <p>Start</p>
+        <h2>Start</h2>
         <p><%= activity.end %></p>
       </div>
-      <div class="col-sm">
-        <p>End</p>
+      <div class="col-sm" >
+        <h2>End</h2>
         <p><%= activity.end %></p>
+      </div>
+      <div class="col-sm" >
+        <h2>Participants</h2>
+        <% GuestActivity.where(activity: activity).each do |guestactivity| %>
+          <%= guestactivity.guest.user.email %>
+        <% end %>
+        <%= simple_form_for [activity, @guest_activity] do |f| %>
+          <%= f.submit %>
+        <% end %>
       </div>
     </div>
   <% end %>
