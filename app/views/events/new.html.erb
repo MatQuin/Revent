@@ -1,28 +1,13 @@
-<%#
 <div class="container">
-  <h1>New event!!</h1>
-  <div class="row">
+  <div class="row mt-5" data-controller="event">
     <div class="col-6">
-    <%= render "form", event: @event %>
-    <%# </div>
-    <div class="col-6">
-    <%= render "preview", event: @event %>
-    <%# </div>
-  </div>
-</div> %>
-
-<div class="container">
-
-  <div class="row" data-controller="event">
-    <div class="col-4">
-      <%= render "form", post: @event %>
+      <%= render "form", event: @event, user: @user %>
     </div>
 
-    <div id="event-preview" class="col-6">
+    <div class="col-6 col-6 bg-white rounded-4 p-3">
       <div class="card">
-        <%= render "preview", post: @event %>
+        <%= render "preview", event: @event %>
       </div>
     </div>
   </div>
-
 </div>
