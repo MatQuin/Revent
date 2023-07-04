@@ -2,7 +2,7 @@
   <% if event.photo.attached? %>
     <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
   <% else %>
-    <%= image_tag "https://avatars.githubusercontent.com/u/123788157?v=4", class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
+    <%= image_tag "https://usagif.com/wp-content/uploads/gif/confetti-18.gif", class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
   <% end %>
   <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
 </div>
