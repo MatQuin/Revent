@@ -6,7 +6,7 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.new()
+    @guest = Guest.new
     @guest.event = @event
     @guest.user = User.find(params[:guest][:user_id].to_i)
     if @guest.save

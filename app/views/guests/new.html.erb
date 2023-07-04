@@ -1,28 +1,25 @@
-
 <div id="event-preview" class="col-8">
-      <div class="card">
-        <%= render "events/preview", post: @event %>
-        <div>
-          <%= @event.title %>
-          <% @event.guests.each do |guest| %>
-          <%= guest.user.email %>
-          <% end %>
-        </div>
-      <div class="d-grid gap-2 col-4 mx-auto">
+  <div class="card">
+    <%= render "events/preview", event: @event %>
+    <div>
+      <%= @event.title %>
+      <% @event.guests.each do |guest| %>
+        <%= guest.user.email %>
+      <% end %>
+    </div>
+    <div class="d-grid gap-2 col-4 mx-auto">
       <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
-      </div>
-      </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-8">
-      <div class="d-flex justify-content-between">
-        <button class="buttonsuper">
-        <%= link_to "back", new_user_event_path(@event) %> <%#ajouter un path vers le    new_user_event_path%>
-        </button>
-      <button class="buttonsuper">
-        <%= link_to "next", new_event_activity_path(@event) %>
-        </button>
-      </div>
-    </div>
+<div class="col-8">
+  <div class="d-flex justify-content-between">
+    <button class="buttonsuper">
+      <%= link_to "back", new_user_event_path(@event) %> <%#ajouter un path vers le    new_user_event_path%>
+    </button>
+    <button class="buttonsuper">
+      <%= link_to "next", new_event_activity_path(@event) %>
+    </button>
   </div>
 </div>
