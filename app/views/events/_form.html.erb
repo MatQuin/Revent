@@ -1,79 +1,41 @@
-
-<%# <%= form_with(model: @event, class: "contents") do |form| %>
-<%= simple_form_for [@user, @event] do |form|  %>
-  <% if post.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="row">
-    <%= form.label :title%>
-    <%= form.text_field(
-      :title,
-      :placeholder => "Title",
-      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
-      data: {
-        action: "input->event#previewTitle"
-      }
-    ) %>
-  </div>
-
-  <div class="row">
-    <%= form.label :description %>
-    <%= form.text_area(
-      :description,
-      :placeholder => "Description",
-      rows: 4,
-      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
-      data: {
-        action: "change->event#previewDescription"
-      }
-    ) %>
-  </div>
-
-  <div class="row">
-    <%= form.label :start %>
-    <%= form.date_field(
-      :start,
-      rows: 4,
-      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
-      data: {
-        action: "input->event#previewStart"
-      }
-    ) %>
-  </div>
-
-  <div class="row">
-    <%= form.label :end %>
-    <%= form.date_field(
-      :start,
-      rows: 4,
-      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
-      data: {
-        action: "input->event#previewEnd"
-      }
-    ) %>
-  </div>
-
-  <div class="row">
-    <%= form.label :photo %>
-    <%= form.file_field(
-      :photo, class: "input"
-      # data: {
-      #   action: "input->event#previewPhoto"
-      # }
-    ) %>
-  </div>
-
-
-  <div class="inline">
-    <%= form.submit class: 'buttonsuper' %>
-  </div>
+<%= simple_form_for [user, event] do |f| %>
+  <%= f.input :title,
+                  placeholder: "Title",
+                  input_html: {
+                    data: {
+                      action: "input->event#previewTitle"
+                    }
+                  }
+                  %>
+  <%= f.input :description,
+                  placeholder: "Description",
+                  rows: 4,
+                  input_html: {
+                    data: {
+                      action: "change->event#previewDescription"
+                    }
+                  } %>
+  <%= f.input :start,
+                html5: true,
+                rows: 4,
+                input_html: {
+                  data: {
+                    action: "input->event#previewStart"
+                  }
+                } %>
+  <%= f.input :end,
+                html5: true,
+                rows: 4,
+                input_html: {
+                  data: {
+                    action: "input->event#previewEnd"
+                  }
+                } %>
+  <%= f.input :photo, as: :file,
+              input_html: {
+                data: {
+                  action: "input->event#previewPhoto"
+                }
+              } %>
+  <%= f.submit class: 'buttonsuper' %>
 <% end %>

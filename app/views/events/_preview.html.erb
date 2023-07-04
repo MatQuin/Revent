@@ -1,26 +1,31 @@
-    <div class="ag-format-container">
+<div class="">
+  <% if event.photo.attached? %>
+    <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
+  <% else %>
+    <%= image_tag "https://avatars.githubusercontent.com/u/123788157?v=4", class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
+  <% end %>
+  <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
+</div>
 
+<p> Description of the event : </p>
 
-     <h2 class="ag-courses_box" data-event-target="title"><%= @event.title || '[Add a title]'%></h2>
-       <p> Description of the event : </p>
-        <div class="ag-courses_item" data-event-target="description"> <%= @event.description || '[Add a description]' %>
-        </div>
+<div class="ag-courses_item" data-event-target="description"> <%= event.description || '[Add a description]' %>
+</div>
 
-        <div class="d-flex flex-row">
-          <div class="p-2">
-           <p> <i class="fa fa-calendar" aria-hidden="true"></i> </p>
-          </div>
-          <div class="p-2">
-            <div class="ag-courses_item" data-event-target="start"> <%= @event.start %>
-            </div>
-          </div>
-          <div class="p-2">
-            <p> to </p>
-          </div>
-          <div class="p-2">
-            <div  class="ag-courses_item"  data-event-target="end">
-            <%= @event.end %>
-          </div>
-        </div>
+<div class="d-flex flex-row">
+  <div class="p-2">
+    <p> <i class="fa fa-calendar" aria-hidden="true"></i> </p>
+  </div>
+  <div class="p-2">
+    <div class="ag-courses_item" data-event-target="start"> <%= event.start %>
     </div>
+  </div>
+  <div class="p-2">
+    <p> to </p>
+  </div>
+  <div class="p-2">
+    <div  class="ag-courses_item"  data-event-target="end">
+      <%= event.end %>
+    </div>
+  </div>
 </div>
