@@ -1,14 +1,14 @@
 
 <div class="container">
-  <h1>Activities List</h1>
-   <% @activities.each do |activity| %>
+  <h1>Propositions List</h1>
+   <% @propositions.each do |propositions| %>
     <div class="row">
       <div class="col-sm">
         <h2>Description</h2>
         <p><%= activity.description %></p>
       </div>
       <div class="col-sm">
-        <h2>Start</h2>
+        <h2>Propositions</h2>
         <p><%= activity.end %></p>
       </div>
       <div class="col-sm" >
@@ -21,12 +21,8 @@
           <%= guestactivity.guest.user.email %>
         <% end %>
         <%= simple_form_for [activity, @guest_activity] do |f| %>
-          <%= f.submit "Join Activity"%>
+          <%= f.submit "Like"%>
         <% end %>
-      </div>
-      <div class="col-sm" >
-        <h2>Propostions</h2>
-        <p><%= link_to "Add propositions", "/propositions/new"%></p>
       </div>
     </div>
   <% end %>
