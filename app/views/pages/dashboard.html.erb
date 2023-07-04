@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-<!--
-ecss nearly: https://ecss.io/
--->
-
 <!-- tab module -->
 <section class="ns-TabsModule" data-active-tab="A">
 
@@ -28,13 +15,25 @@ ecss nearly: https://ecss.io/
 
   <!-- tab panels -->
   <div class="ns-TabPanels">
-    <div class="ns-TabPanel" id="ns-TabPanelA" data-tab-panel="A">3v3nt1</div>
-    <div class="ns-TabPanel" id="ns-TabPanelB" data-tab-panel="B">Panel B</div>
-    <div class="ns-TabPanel" id="ns-TabPanelC" data-tab-panel="C">Panel C</div>
-    <div class="ns-TabPanel" id="ns-TabPanelD" data-tab-panel="D">Panel D</div>
-    <div class="ns-TabPanel" id="ns-TabPanelE" data-tab-panel="E">Panel E</div>
-    <div class="ns-TabPanel" id="ns-TabPanelF" data-tab-panel="F">Panel F</div>
-    <div class="ns-TabPanel" id="ns-TabPanelG" data-tab-panel="G">Panel G</div>
+    <div class="ns-TabPanel" id="ns-TabPanelA" data-tab-panel="A">
+    <% @events.each do |event| %>
+      <br>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td> From
+        <td><%= event.start%></td> To
+        <td><%= event.end %></td>
+      <br/>
+    <% end %>
+  </div></div>
+    <div class="ns-TabPanel" id="ns-TabPanelB" data-tab-panel="B">
+    <li>3v3nt7</li>
+    <li>3v3nt8</li>
+    <li>3v3nt9</li></div>
+    <div class="ns-TabPanel" id="ns-TabPanelC" data-tab-panel="C">
+    <li>3v3nt7</li>
+    <li>3v3nt8</li>
+    <li>3v3nt9</li></div>
+
   </div><!-- /.ns-TabPanels -->
 
 </section><!-- /.ns-TabsModule -->
