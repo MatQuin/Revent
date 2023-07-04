@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @events = Event.where(user: current_user)
+    @activities = Activity.where(user: current_user)
+  end
 end

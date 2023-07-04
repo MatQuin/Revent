@@ -9,20 +9,23 @@
     <button class="nav-link" id="forthcoming_events-tab" data-bs-toggle="tab" data-bs-target="#forthcoming_events" type="button" role="tab" aria-controls="forthcoming_events" aria-selected="false">Forthcoming 3v3nts</button>
   </li>
 </ul>
+
 <div class="tab-content" id="myTabContent">
-
   <div class="tab-pane fade show active" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
-
-    <li>3v3nt1</li>
-    <li>3v3nt2</li>
-    <li>3v3nt3</li>
+    <% @events.each do |event| %>
+      <br>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td> From
+        <td><%= event.start%></td> To
+        <td><%= event.end %></td>
+      <br/>
+    <% end %>
   </div>
   <div class="tab-pane fade show active" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
     <li>3v3nt4</li>
     <li>3v3nt5</li>
     <li>3v3nt6</li>
   </div>
-
   <div class="tab-pane fade" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
     <li>3v3nt7</li>
     <li>3v3nt8</li>
