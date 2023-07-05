@@ -4,8 +4,10 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+
     # @event = Event.find(params[:event_id])
     # @activities = @event.activities
+
     @guest_activity = GuestActivity.new
   end
 

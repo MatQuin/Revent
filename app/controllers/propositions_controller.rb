@@ -52,4 +52,4 @@ class PropositionsController < ApplicationController
     params.require(:proposition).permit(:description)
   end
 end
-end
+
