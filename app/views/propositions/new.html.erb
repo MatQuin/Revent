@@ -1,0 +1,20 @@
+
+<div class="container">
+
+  <div class="row" data-controller="activity">
+    <div class="col-4">
+      <%= render "form", proposition:  @proposition, proposition: @proposition %>
+    </div>
+
+    <div id="proposition-preview" class="col-6">
+      <div class="card">
+        <%= render "preview", post: @activity %>
+      </div>
+    </div>
+  </div>
+ <div class="d-grid gap-2 col-4 mx-auto">
+        <div class="buttonsuper">
+          <%= link_to "FINISH", activity_propositions_path(@activty)%>
+        </div>
+    </div>
+</div>

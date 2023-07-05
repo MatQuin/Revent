@@ -1,31 +1,39 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="past_events-tab" data-bs-toggle="tab" data-bs-target="#past_events" type="button" role="tab" aria-controls="past_events" aria-selected="true">Past 3vents</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="ongoing_events-tab" data-bs-toggle="tab" data-bs-target="#ongoing_events" type="button" role="tab" aria-controls="ongoing_events" aria-selected="false">Ongoing 3v3nts</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="forthcoming_events-tab" data-bs-toggle="tab" data-bs-target="#forthcoming_events" type="button" role="tab" aria-controls="forthcoming_events" aria-selected="false">Forthcoming 3v3nts</button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
+ <!-- tab module  yo matthieu j'ai copiecollé ton commit f085311 sur mon 540b863-->
+<section class="ns-TabsModule" data-active-tab="A">
 
-  <div class="tab-pane fade show active" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
+  <!-- horizontal scroll wrapper -->
+  <div class="ns-ScrollWrapper">
+    <!-- tab nav -->
+    <nav class="ns-TabNav">
+      <a href="#ns-TabPanelA" class="ns-TabNav_Link" data-tab="A"><span>Past events</span></a>
+      <a href="#ns-TabPanelB" class="ns-TabNav_Link" data-tab="B"><span>Ongoing events</span></a>
+      <a href="#ns-TabPanelC" class="ns-TabNav_Link" data-tab="C"><span>Forthcoming events</span></a>
 
-    <li>3v3nt1</li>
-    <li>3v3nt2</li>
-    <li>3v3nt3</li>
-  </div>
-  <div class="tab-pane fade show active" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
-    <li>3v3nt4</li>
-    <li>3v3nt5</li>
-    <li>3v3nt6</li>
-  </div>
+      <span class="ns-TabNav_Indicator"></span>
+    </nav><!-- /.ns-TabNav -->
+  </div><!-- /.ns-ScrollWrapper -->
 
-  <div class="tab-pane fade" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
+  <!-- tab panels -->
+  <div class="ns-TabPanels">
+    <div class="ns-TabPanel" id="ns-TabPanelA" data-tab-panel="A">
+    <% @events.each do |event| %>
+      <br>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td> From
+        <td><%= event.start%></td> To
+        <td><%= event.end %></td>
+      <br/>
+    <% end %>
+  </div></div>
+    <div class="ns-TabPanel" id="ns-TabPanelB" data-tab-panel="B">
     <li>3v3nt7</li>
     <li>3v3nt8</li>
-    <li>3v3nt9</li>
-  </div>
-</div>
+    <li>3v3nt9</li></div>
+    <div class="ns-TabPanel" id="ns-TabPanelC" data-tab-panel="C">
+    <li>3v3nt7</li>
+    <li>3v3nt8</li>
+    <li>3v3nt9</li></div>
+
+  </div><!-- /.ns-TabPanels -->
+
+</section><!-- /.ns-TabsModule -->

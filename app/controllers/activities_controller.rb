@@ -3,8 +3,9 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @event = Event.find(params[:event_id])
-    @activities = @event.activities
+    @activities = Activity.all
+    # @event = Event.find(params[:event_id])
+    # @activities = @event.activities
     @guest_activity = GuestActivity.new
   end
 
