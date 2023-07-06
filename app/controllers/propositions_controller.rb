@@ -8,13 +8,13 @@ class PropositionsController < ApplicationController
 
   def new
     @proposition = Proposition.new
-    @activity = Activity.find(params[:event_id])
+    @activity = Activity.find(params[:activity_id])
   end
 
   def create
+    @activity = Activity.find(params[:activity_id])
     @proposition = Proposition.new(activity_params)
-    @proposition.guest = Guest.where(user: current_user).first
-    @activity = Activity.find(params[:event_id])
+    @proposition.guest = Guest.where(user: current_user, event: @activity.event).first
     @proposition.activity = @activity
     if @proposition.save
       redirect_to new_activity_proposition_path(@activity)
@@ -52,4 +52,3 @@ class PropositionsController < ApplicationController
     params.require(:proposition).permit(:description)
   end
 end
-
