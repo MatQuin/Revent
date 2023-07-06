@@ -12,9 +12,12 @@
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
+  Your Past Events
     <% @events.where("start < ?", Date.today).each do |event| %>
       <br>
         <td><%= event.title %></td>
+        Located at
+        <td><%= event.address %></td>
         <td><%= event.description %></td> From
         <td><%= event.start%></td> To
         <td><%= event.end %></td>
@@ -22,20 +25,25 @@
     <% end %>
   </div>
   <div class="tab-pane fade show active" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
+  Ongoing Events
     <% @events.where("start = ?", Date.today).each do |event| %>
       <br>
-        <td><%= event.title %></td>
+        <td><%= event.title %></td> Located at
+        <td><%= event.address %></td>
         <td><%= event.description %></td> From
         <td><%= event.start%></td> To
         <td><%= event.end %></td>
-      <br/>
+        <%= render 'shared/card', element: event %>
     <% end %>
   </div>
 
   <div class="tab-pane fade" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
+  Future Events
     <% @events.where("start > ?", Date.today).each do |event| %>
       <br>
         <td><%= event.title %></td>
+        Located at
+        <td><%= event.address %></td>
         <td><%= event.description %></td> From
         <td><%= event.start%></td> To
         <td><%= event.end %></td>
