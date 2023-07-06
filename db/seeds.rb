@@ -7,6 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # User.create!(email:"auroraemu@gmail.com", password:"revent")
+require "open-uri"
+
+GuestActivity.destroy_all
+Activity.destroy_all
 Guest.destroy_all
 Event.destroy_all
 User.destroy_all
@@ -15,6 +19,10 @@ user1 = User.new(
   email: 'totouuuu@gmail.com',
   password: 'tototo1'
 )
+
+
+file = URI.open("https://avatars.githubusercontent.com/u/123788157?v=4")
+user1.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
 
 user1.save
 user1.valid?

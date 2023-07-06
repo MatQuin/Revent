@@ -18,7 +18,7 @@
       <div class="col-sm" >
         <h2>Participants</h2>
         <% GuestActivity.where(activity: activity).each do |guestactivity| %>
-          <%= guestactivity.guest.user.email %>
+          <%= cl_image_tag guestactivity.guest.user.avatar.key, height: 300, width: 300, crop: :fill %>
         <% end %>
         <%= simple_form_for [activity, @guest_activity] do |f| %>
           <%= f.submit "Join Activity"%>
