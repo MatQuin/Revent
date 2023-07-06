@@ -1,18 +1,18 @@
 <div class="ag-format-container">
-    <h2 class="ag-courses_box" data-event-target="title"><%= @event.title || '[Add a title]'%></h2>
+    <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
     <%#<p> Description of the event : </p><%>
-    <div class="ag-courses_item" data-event-target="description"> Description of the event : <%= @event.description || '[Add a description]' %>
+    <div class="ag-courses_item" data-event-target="description"> Description of the event : <%= event.description || '[Add a description]' %>
     </div>
     <p> The event will start on : </p>
-    <div class="ag-courses_item" data-event-target="start"> <%= @event.start || '[Add a starting date]' %>
+    <div class="ag-courses_item" data-event-target="start"> <%= event.start || '[Add a starting date]' %>
     </div>
     <p> The event will end on : </p>
     <div  class="ag-courses_item"  data-event-target="end">
-     <%= @event.end || '[Add an ending date]' %>
+     <%= event.end || '[Add an ending date]' %>
     </div>
     <div  class="ag-courses_item"  data-event-target="photo">
-    <% if @event.photo.attached?  %>
-     <%= cl_image_tag @event.photo.key %>
+    <% if event.photo.attached?  %>
+     <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo" %>
      <% end %>
     </div>
 </div>
