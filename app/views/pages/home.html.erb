@@ -1,15 +1,13 @@
-
 <div class="row">
   <div class="col-12 col-lg-8">
     <%= video_tag "myeventintro.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video w-100" %>
   </div>
 
-
   <div class="col-12 col-lg-4 col-12 col-lg-4 d-flex flex-column justify-content-center">
     <div class="title-wrapper">
       <h1> Welcome to </h1> <img src="/assets/Re3v3nt_white-a80cbb9162147a7f2415519767f24af9bc55d7bbe8a698ec9a24bf24a405f95a.png" >
         <p><br>Tracking an event was never this easy. Re3v3nt app is built for the organizers who wants to grow their event reach and manage it easily. Our valued event organizers are now using it to keep a record of every attendee and manage activities for each just at the touch of a screen</p>
-           <div class="d-grid gap-2 col-4 mx-auto">
+           <div class="d-grid mx-auto">
            <div class="buttonsuper">
             <% if user_signed_in? == true %>
             <%= link_to "Start right now !", new_user_event_path(current_user) %>
@@ -23,16 +21,3 @@
 
 </div>
 
-<div class="footer">
-  <div class="footer-copyright">
-    Follow us with <i class="fas fa-heart"></i> on
-  </div>
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-
-</div>

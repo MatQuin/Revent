@@ -17,9 +17,16 @@
       <div class="event-show-card">
         <h3>Event Activities</h3>
         <% @event.activities.order(end: :asc).each.with_index do |activity, index| %>
-          <p><%= index + 1 %> - <%= activity.description %></p>
+          <%= link_to event_activity_path(@event, activity) do  %>
+            <p><%= index + 1 %> - <%= activity.description %></p>
+          <% end %>
         <% end %>
         <p class="my-3"><%= link_to "Add an activity", new_event_activity_path(@event), class: 'buttonsuper' %></p>
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>
