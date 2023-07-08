@@ -31,12 +31,12 @@ event = Event.create!(
 puts "create guests"
 
 guest_1 = Guest.create!(
-  user_id: user_1.id, 
+  user_id: user_1.id,
   event_id: event.id
 )
 
 guest_2 = Guest.create!(
-  user_id: user_2.id, 
+  user_id: user_2.id,
   event_id: event.id
 )
 
@@ -46,7 +46,7 @@ dj_activity = Activity.create!(
   description: 'DJ set',
   start: Time.now,
   end: Time.now + 1,
-  guest_id: user_1.id,
+  guest_id: guest_1.id,
   event_id: event.id
 )
 
@@ -76,7 +76,7 @@ catering_activity = Activity.create!(
   description: 'Catering',
   start: Time.now,
   end: Time.now + 2,
-  guest_id: user_1.id,
+  guest_id: guest_1.id,
   event_id: event.id
 )
 
@@ -106,7 +106,7 @@ shooting_activity = Activity.create!(
   description: 'Photo shooting',
   start: Time.now,
   end: Time.now + 3,
-  guest_id: user_1.id,
+  guest_id: guest_1.id,
   event_id: event.id
 )
 
