@@ -18,5 +18,9 @@
 }
 .nav-link:hover{
   color: rgb(255, 56, 86);
-
+  text-decoration: underline;
+  -webkit-text-decoration-color: red;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 15px;
 }
