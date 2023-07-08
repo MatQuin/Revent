@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-  has_many :guests
-  has_many :activities
+  has_many :guests, dependent: :destroy
+  has_many :activities, dependent: :destroy
 
   has_one_attached :photo
 
