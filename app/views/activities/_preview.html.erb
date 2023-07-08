@@ -1,17 +1,12 @@
 <div class="ag-format-container">
-    <div  class="ag-courses_item">
-      <% if event.photo.attached?  %>
+  <div  class="ag-courses_item">
+    <% if event.photo.attached?  %>
       <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo" %>
-      <% end %>
-      <h2><%= event.title || '[Add a title]'%></h2>
-      <h2 ><%= event.description || '[Add a description]'%></h2><br>
-      <div data-event-target="description"> Activity's description : <br><%= activity.description || '[Add a description]' %>
-      </div>
-      <div class="ag-courses_item" data-event-target="start"> <%= activity.start || '[Add a starting date]' %>
-      <div class="ag-courses_item"  data-event-target="end">
-      <%= activity.end || '[Add an ending date]' %>
-      </div>
-     </div>
-    </div>
-
+    <% end %>
+    <h2><%= event.title || '[Add a title]'%></h2>
+    <h2 ><%= event.description || '[Add a description]'%></h2><br>
+    <div data-event-target="description"> Activity's description : <br><%= activity.description || '[Add a description]' %></div>
+    <div class="ag-courses_item" data-event-target="start"> <%= activity.start || '[Add a starting date]' %></div>
+    <div class="ag-courses_item" data-event-target="end"> <%= activity.end || '[Add an ending date]' %></div>
+  </div>
 </div>

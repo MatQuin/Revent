@@ -3,13 +3,27 @@
                 placeholder: "Description",
                 rows: 4,
                 input_html: {
+                  class:"border-input",
                   data: {
                     action: "keyup->event#previewDescription"
                   }
                 } %>
-
-            <label for="appt">Select a time:</label>
-           <%= f.input :start %>
+                <%= f.input :start,
+                              html5: true,
+                              rows: 4,
+                              input_html: {
+                                data: {
+                                  action: "keyup->event#previewStart"
+                                }
+                              } %>
+                <%= f.input :end,
+                              html5: true,
+                              rows: 4,
+                              input_html: {
+                                data: {
+                                  action: "keyup->event#previewEnd"
+                                }
+                              } %>
            <%= f.submit 'Create', class: 'buttonsuper' %>
 
 
