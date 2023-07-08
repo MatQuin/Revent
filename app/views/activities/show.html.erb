@@ -2,21 +2,19 @@
   <div class="row">
     <div class="col-6">
       <div class="event-show-card">
-        <%# <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
         <h1><%= activity.title %></h1>
         <p class="event-show-title"><%= @activity.address %></p>
     </div>
     <div class="event-show-card">
       <h3>Event details</h3>
       <p> From <%= activity.start %> to <%= @activity.end %> </p>
-      <p><%= link_to "Invite Friends", "/guests/new"%></p>
+      <p><%= link_to "Invite Friends", "/guests/new", class: 'buttonsuper' %></p>
       </div>
     </div>
     <div class="col-6">
       <div class="event-show-card">
-        <%# <%= render "activities/new" %>
         <h3>Event Activities</h3>
-        <p><%= link_to "Add an activity", "/activities/new"%></p>
+        <p><%= link_to "Add an activity", new_activity_path, class: 'buttonsuper' %></p>
       </div>
     </div>
 </div>
