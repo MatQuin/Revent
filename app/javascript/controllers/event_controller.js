@@ -1,5 +1,8 @@
 import ApplicationController from './application_controller'
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 export default class extends ApplicationController {
   static targets = [ "title", "description", "start", "end", "photo"]
 

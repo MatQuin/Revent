@@ -35,7 +35,8 @@ class EventsController < ApplicationController
 
   def show
     if @event.geocoded?
-      @markers = [{lat: @event.latitude, lng: @event.longitude}]
+      @markers = [{lat: @event.latitude, lng: @event.longitude, marker_html: render_to_string(partial: "marker")
+        }]
     else
       @markers = [{}]
     end
