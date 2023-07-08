@@ -12,10 +12,8 @@
       </div>
     </div>
     <div class="d-flex justify-content-between">
-        <button class="buttonsuper">
-        <%= link_to "back", new_user_event_path(@event) %>
-      <button class="buttonsuper">
-        <%= link_to "FINISH", event_activities_path(@event)%>
-        </button>
+      <%= link_to "back", new_user_event_path(@event), class: 'buttonsuper' %>
+      <%= link_to "FINISH", event_activities_path(@event), class: 'buttonsuper' %>
+    </div>
   </div>
 </div>
