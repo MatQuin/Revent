@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :activities, only: [:edit, :update, :destroy, :show] do
-    resources :guest_activities, only: [:create]
+    resources :guest_activities, only: [:create, :destroy]
     resources :propositions, only: [:index, :new, :create]
   end
 end
