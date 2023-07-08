@@ -25,9 +25,25 @@ guest = Guest.create!(
 )
 
 activity = Activity.create!(
-  description: 'EVG de Ken',
+  description: 'Courses de mamies',
   start: Date.today,
   end: Date.today + 2,
+  guest_id: guest.id,
+  event_id: event.id
+)
+
+activity = Activity.create!(
+  description: 'Bingo',
+  start: Date.today,
+  end: Date.today + 3,
+  guest_id: guest.id,
+  event_id: event.id
+)
+
+activity = Activity.create!(
+  description: 'Bataille de cannes',
+  start: Date.today,
+  end: Date.today + 4,
   guest_id: guest.id,
   event_id: event.id
 )
