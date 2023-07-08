@@ -18,4 +18,9 @@ Rails.application.routes.draw do
     resources :guest_activities, only: [:create]
     resources :propositions, only: [:index, :new, :create]
   end
+
+  resources :propositions, only: [:show] do
+    resources :upvotes, only: [:create]
+
+  end
 end
