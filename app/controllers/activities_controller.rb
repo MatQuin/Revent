@@ -16,7 +16,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.guest = Guest.where(user: current_user).first
+    @activity.guest = Guest.find_by(user: current_user)
     @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
