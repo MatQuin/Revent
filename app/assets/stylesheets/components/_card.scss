@@ -4,8 +4,8 @@
 }
 
 .ag-format-container {
-  // width: 1142px;
-  // margin: 0 auto;
+  width: 1142px;
+  margin: 0 auto;
 }
 
 .ag-courses_box {
@@ -29,6 +29,8 @@
   overflow: hidden;
 //border-radius: 28px; lui ça bouffe le texte dans les cards, on le laisse en comm(auror)
 }
+
+
 .ag-courses-item_link {
   display: block;
   padding: 30px 20px;

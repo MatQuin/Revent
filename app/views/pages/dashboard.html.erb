@@ -9,45 +9,44 @@
     <button class="nav-link" id="forthcoming_events-tab" data-bs-toggle="tab" data-bs-target="#forthcoming_events" type="button" role="tab" aria-controls="forthcoming_events" aria-selected="false">Forthcoming 3v3nts</button>
   </li>
 </ul>
+
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
-  Your Past Events
-    <% @events.where("start < ?", Date.today).each do |event| %>
-      <br>
-        <td><%= event.title %></td>
-        Located at
-        <td><%= event.address %></td>
-        <td><%= event.description %></td> From
-        <td><%= event.start%></td> To
-        <td><%= event.end %></td>
-      <br/>
-    <% end %>
+    <h1 class="text-center"><font color="white">Past Events</font></h1>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <% @events.where("start < ?", Date.today).each do |event| %>
+          <br>
+            <%= render 'shared/card', element: event %>
+          <br/>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="tab-pane fade show active" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
-  Ongoing Events
-    <% @events.where("start = ?", Date.today).each do |event| %>
-      <br>
-        <td><%= event.title %></td> Located at
-        <td><%= event.address %></td>
-        <td><%= event.description %></td> From
-        <td><%= event.start%></td> To
-        <td><%= event.end %></td>
-        <%= render 'shared/card', element: event %>
-    <% end %>
+    <h1 class="text-center"><font color="white">Ongoing Events</font></h1>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <% @events.where("start = ?", Date.today).each do |event| %>
+          <br>
+          <%= render 'shared/card', element: event %>
+          <br/>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="tab-pane fade" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
-  Future Events
-    <% @events.where("start > ?", Date.today).each do |event| %>
-      <br>
-        <td><%= event.title %></td>
-        Located at
-        <td><%= event.address %></td>
-        <td><%= event.description %></td> From
-        <td><%= event.start%></td> To
-        <td><%= event.end %></td>
-      <br/>
-    <% end %>
+    <h1 class="text-center"><font color="white">Future Events</font></h1>
+    <div class="ag-format-container">
+     <div class="ag-courses_box">
+      <% @events.where("start > ?", Date.today).each do |event| %>
+        <br>
+          <%= render 'shared/card', element: event %>
+        <br/>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>

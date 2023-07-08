@@ -10,9 +10,11 @@
     <div class="event-show-card">
       <h3>Event details</h3>
       <p> From <%= @event.start %> to <%= @event.end %> </p>
+      <p><%= @event.description %></p>
       <p><%= link_to "Invite Friends", "/guests/new"%></p>
       </div>
     </div>
+
     <div class="col-6">
       <div class="event-show-card">
         <%# <%= render "activities/new" %>
