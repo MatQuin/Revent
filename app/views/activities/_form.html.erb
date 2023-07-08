@@ -1,6 +1,12 @@
    <%= simple_form_for [event, activity] do |f| %>
-          <%= f.input :description, label:"Description" %>
+          <%= f.input :description,
+                placeholder: "Description",
+                rows: 4,
+                input_html: {
+                  data: {
+                    action: "change->event#previewDescription"
+                  }
+                } %>
           <%= f.input :start %>
           <%= f.input :end %>
-          <%= f.submit class: 'buttonsuper' %>
         <% end %>
