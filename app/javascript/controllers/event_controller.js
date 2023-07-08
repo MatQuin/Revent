@@ -21,6 +21,10 @@ export default class extends ApplicationController {
     this.startTarget.innerText = event.target.value
   }
 
+  previewAdrress(event) {
+    this.addressTarget.innerText = event.target.value
+  }
+
   previewEnd(event) {
     this.endTarget.innerText = event.target.value
   }

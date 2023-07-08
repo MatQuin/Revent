@@ -4,10 +4,18 @@
   <% else %>
     <%= image_tag "https://usagif.com/wp-content/uploads/gif/confetti-18.gif", class: "w-100 rounded-4 event-preview-card__photo", data: { event_target: 'photo' } %>
   <% end %>
-  <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
 </div>
-<p> Description of the event : </p>
+
+  <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
+
+<h3> Description of the event : </h3>
+
 <div class="ag-courses_item" data-event-target="description"> <%= event.description || '[Add a description]' %>
+</div>
+
+<h3> Address : </h3>
+
+<div class="ag-courses_item" data-event-target="address"> <%= event.address || '[Add an address]' %>
 </div>
 
 <div class="d-flex flex-row">
