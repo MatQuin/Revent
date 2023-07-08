@@ -1,15 +1,14 @@
 <div id="event-preview" class="col-8">
   <div class="card">
     <%= render "events/preview", event: @event %>
-    <div>
-      <%= @event.title %>
       <% @event.guests.each do |guest| %>
       <%= guest.user.email %>
       <% end %>
-    </div>
     <div class="d-grid gap-2 col-4 mx-auto">
-      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+     <p>Guests:</p>
     </div>
+     <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
+
   </div>
 </div>
 <div class="d-grid gap-2 col-4 mx-auto">

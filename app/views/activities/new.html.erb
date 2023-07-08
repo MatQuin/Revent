@@ -1,24 +1,6 @@
 
-<%# <div class="container">
-  <div class="row" data-controller="event">
-    <div class="col-8">
-     <%= render "form", activity:  @activity, event: @event %>
-   <%# </div>
-      <div class="col-4" class="card">
-        <%= render "events/preview", post: @event %>
-     <%# </div>
-        <div class="d-grid gap-2 col-4 mx-auto">
-        <div class="buttonsuper">
-          <%= link_to "FINISH", event_activities_path(@event)%>
-       <%# </div>
-    </div>
-
-  </div>
-</div><%> <%# vieux code 01/07/23<%>
-
-
 <div class="container">
-<h3>Let's propose an activity for "<%=@event.title%>" </h3>
+<h3>Let's propose an activity for "<%=@event.title%>" </h3><br>
   <div class="row" data-controller="event">
     <div class="col-4">
       <%= render "form", activity:  @activity, event: @event %>
@@ -26,13 +8,12 @@
 
     <div id="event-preview" class="col-6">
       <div class="card">
-        <%= render "preview", event: @event %>
+        <%= render "preview", event: @event, activity: @activity %>
       </div>
     </div>
     <div class="d-flex justify-content-between">
         <button class="buttonsuper">
-        <%= link_to "back", new_user_event_path(@event) %> <%#ajouter un path vers le    new_user_event_path%>
-        </button>
+        <%= link_to "back", new_user_event_path(@event) %>
       <button class="buttonsuper">
         <%= link_to "FINISH", event_activities_path(@event)%>
         </button>

@@ -3,11 +3,17 @@ import ApplicationController from './application_controller'
 export default class extends ApplicationController {
   static targets = [ "title", "description", "start", "end", "photo"]
 
+  connect() {
+    console.log("Hello from our first Stimulus controller")
+    console.log(this.descriptionTarget)
+  }
+
   previewTitle(event) {
     this.titleTarget.innerText = event.target.value
   }
 
   previewDescription(event) {
+    console.log("coucou description")
     this.descriptionTarget.innerText = event.target.value
   }
 

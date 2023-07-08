@@ -1,17 +1,17 @@
 <div class="ag-format-container">
-    <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
-    <div class="ag-courses_item" data-event-target="description"> Description of the event : <%= event.description || '[Add a description]' %>
+    <div  class="ag-courses_item">
+      <% if event.photo.attached?  %>
+      <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo" %>
+      <% end %>
+      <h2><%= event.title || '[Add a title]'%></h2>
+      <h2 ><%= event.description || '[Add a description]'%></h2><br>
+      <div data-event-target="description"> Activity's description : <br><%= activity.description || '[Add a description]' %>
+      </div>
+      <div class="ag-courses_item" data-event-target="start"> <%= activity.start || '[Add a starting date]' %>
+      <div class="ag-courses_item"  data-event-target="end">
+      <%= activity.end || '[Add an ending date]' %>
+      </div>
+     </div>
     </div>
-    <p> The event will start on : </p>
-    <div class="ag-courses_item" data-event-target="start"> <%= event.start || '[Add a starting date]' %>
-    </div>
-    <p> The event will end on : </p>
-    <div  class="ag-courses_item"  data-event-target="end">
-     <%= event.end || '[Add an ending date]' %>
-    </div>
-    <div  class="ag-courses_item"  data-event-target="photo">
-    <% if event.photo.attached?  %>
-     <%= cl_image_tag event.photo.key, class: "w-100 rounded-4 event-preview-card__photo" %>
-     <% end %>
-    </div>
+
 </div>
