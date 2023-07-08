@@ -1,9 +1,6 @@
-import ApplicationController from './application_controller'
+import { Controller } from "@hotwired/stimulus"
 
-import MapController from "./map_controller"
-application.register("map", MapController)
-
-export default class extends ApplicationController {
+export default class extends Controller {
   static targets = [ "title", "description", "start", "end", "photo"]
 
   connect() {
