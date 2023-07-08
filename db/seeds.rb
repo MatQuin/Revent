@@ -6,13 +6,19 @@ Guest.destroy_all
 Event.destroy_all
 User.destroy_all
 
+puts "create user"
+
 user_1 = User.create!(email: 'matt@gmail.com', password: '123456')
 file = URI.open("https://avatars.githubusercontent.com/u/123732355?v=4")
 user_1.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
 
+puts "create user"
+
 user_2 = User.create!(email: 'aurora@gmail.com', password: '123456')
 file = URI.open("https://avatars.githubusercontent.com/u/123490989?v=4")
 user_2.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
+
+puts "create event"
 
 event = Event.create!(
   title: "Aurora's Wedding",
@@ -21,6 +27,8 @@ event = Event.create!(
   address: 'Sassari',
   user_id: user_1.id
 )
+
+puts "create guests"
 
 guest_1 = Guest.create!(
   user_id: user_1.id, 
@@ -32,6 +40,8 @@ guest_2 = Guest.create!(
   event_id: event.id
 )
 
+puts "create activity"
+
 dj_activity = Activity.create!(
   description: 'DJ set',
   start: 1.week.ago,
@@ -39,6 +49,8 @@ dj_activity = Activity.create!(
   guest_id: user_1.id,
   event_id: event.id
 )
+
+puts "create propositions"
 
 Proposition.create!(
   activity_id: dj_activity.id,
@@ -58,6 +70,8 @@ Proposition.create!(
   description: 'play ABBA'
 )
 
+puts "create activity"
+
 catering_activity = Activity.create!(
   description: 'Catering',
   start: 1.week.ago,
@@ -65,6 +79,8 @@ catering_activity = Activity.create!(
   guest_id: user_1.id,
   event_id: event.id
 )
+
+puts "create propositions"
 
 Proposition.create!(
   activity_id: catering_activity.id,
@@ -84,6 +100,8 @@ Proposition.create!(
   description: 'booze'
 )
 
+puts "create activity"
+
 shooting_activity = Activity.create!(
   description: 'Photo shooting',
   start: 1.week.ago,
@@ -91,6 +109,8 @@ shooting_activity = Activity.create!(
   guest_id: user_1.id,
   event_id: event.id
 )
+
+puts "create propositions"
 
 Proposition.create!(
   activity_id: shooting_activity.id,
