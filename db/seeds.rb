@@ -21,43 +21,9 @@ user_2.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png"
 puts "create event"
 
 event = Event.create!(
-  title: 'Anniversaire de mamie',
-  status: 'to_come',
-  start: Date.today + 3,
-  end:   Date.today + 4,
-  address: '16 Villa Gaudelet',
-  user_id: user.id
-)
-
-guest = Guest.create!(
-  user_id: user.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Courses de mamies',
-  start: Time.today,
-  end:   Time.today + 2,
-  guest_id: guest.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Bingo',
-  start:  Time.today,
-  end:    Time.today + 3,
-  guest_id: guest.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Bataille de cannes',
-  start:  Time.today,
-  end:    Time.today + 4,
-  guest_id: guest.id,
   title: "Aurora's Wedding",
   start: 1.week.ago,
-  end: 1.week.ago + 3.days,
+  end: 1.week.ago + 3,
   address: 'Sassari',
   user_id: user_1.id
 )
@@ -78,8 +44,8 @@ puts "create activity"
 
 dj_activity = Activity.create!(
   description: 'DJ set',
-  start: 1.week.ago,
-  end: 1.week.ago + 1.day,
+  start: Time.now,
+  end: Time.now + 1,
   guest_id: user_1.id,
   event_id: event.id
 )
@@ -108,8 +74,8 @@ puts "create activity"
 
 catering_activity = Activity.create!(
   description: 'Catering',
-  start: 1.week.ago,
-  end: 1.week.ago + 2.day,
+  start: Time.now,
+  end: Time.now + 2,
   guest_id: user_1.id,
   event_id: event.id
 )
@@ -138,8 +104,8 @@ puts "create activity"
 
 shooting_activity = Activity.create!(
   description: 'Photo shooting',
-  start: 1.week.ago,
-  end: 1.week.ago + 3.day,
+  start: Time.now,
+  end: Time.now + 3,
   guest_id: user_1.id,
   event_id: event.id
 )
