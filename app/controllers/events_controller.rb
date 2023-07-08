@@ -9,13 +9,9 @@ class EventsController < ApplicationController
       # unknown characters
     else
       @events = Event.all
-      @markers = @events.geocoded.map do |event|
-        {
-          lat: event.latitude,
-          lng: event.longitude
-          #marker_html: render_to_string(partial: "marker")
-        }
-      end
+
+
+
     end
   end
 
@@ -38,6 +34,11 @@ class EventsController < ApplicationController
   end
 
   def show
+    if @event.geocoded?
+      @markers = [{lat: @event.latitude, lng: @event.longitude}]
+    else
+      @markers = [{}]
+    end
   end
 
   def update
