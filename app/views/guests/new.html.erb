@@ -1,12 +1,11 @@
 <div id="event-preview" class="col-8">
   <div class="card">
     <%= render "events/preview", event: @event %>
-      <% @event.guests.each do |guest| %>
+       <p>Guests:</p>
+        <% @event.guests.each do |guest| %>
       <%= guest.user.email %>
       <% end %>
-    <div class="d-grid gap-2 col-4 mx-auto">
-     <p>Guests:</p>
-    </div>
+    <div class="d-grid gap-2 col-4 mx-auto"></div>
      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
 
   </div>
@@ -14,7 +13,7 @@
 <div class="d-grid gap-2 col-4 mx-auto">
     <div class="d-flex justify-content-between">
       <button class="buttonsuper">
-        <%= link_to "back", new_user_event_path(@event) %>
+        <%= link_to "back", event_path(@event) %>
       </button>
       <button class="buttonsuper">
         <%= link_to "next", new_event_activity_path(@event) %>
