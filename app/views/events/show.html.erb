@@ -3,23 +3,24 @@
   <div class="row">
     <div class="col-6">
       <div class="event-show-card">
-        <%# <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill %>
         <h1><%= @event.title %></h1>
         <p class="event-show-title"><%= @event.address %></p>
-    </div>
-    <div class="event-show-card">
-      <h3>Event details</h3>
-      <p> From <%= @event.start %> to <%= @event.end %> </p>
-      <p><%= @event.description %></p>
-      <p><%= link_to "Invite Friends", "/guests/new"%></p>
+      </div>
+      <div class="event-show-card">
+        <h3>Event details</h3>
+        <p> From <%= @event.start %> to <%= @event.end %> </p>
+        <p><%= @event.description %></p>
+        <p class="my-3"><%= link_to "Invite Friends", "/guests/new", class: 'buttonsuper'%></p>
       </div>
     </div>
-
     <div class="col-6">
       <div class="event-show-card">
-        <%# <%= render "activities/new" %>
         <h3>Event Activities</h3>
-        <p><%= link_to "Add an activity", new_event_activity_path(@event) %></p>
+        <% @event.activities.order(end: :asc).each.with_index do |activity, index| %>
+          <p><%= index + 1 %> - <%= activity.description %></p>
+        <% end %>
+        <p class="my-3"><%= link_to "Add an activity", new_event_activity_path(@event), class: 'buttonsuper' %></p>
       </div>
     </div>
+  </div>
 </div>

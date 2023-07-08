@@ -1,23 +1,18 @@
-
-
-
-  <div class="ag-courses_item">
-    <a href=<%= event_path(element) %> class="ag-courses-item_link">
-      <div class="ag-courses-item_bg"></div>
-
-      <div class="ag-courses-item_title">
-        <% unless element.title.nil? == false %>
-          <%= element.description %>
-        <% else %>
-          <%= element.title %>
-        <% end %>
-      </div>
-
-      <div class="ag-courses-item_date-box">
-        Start:
-        <span class="ag-courses-item_date">
-          <%= element.start %>
-        </span>
-      </div>
-    </a>
-  </div>
+<div class="ag-courses_item">
+  <a href=<%= event_path(element) %> class="ag-courses-item_link">
+    <div class="ag-courses-item_bg"></div>
+    <div class="ag-courses-item_title">
+      <% unless element.title.nil? == false %>
+        <%= element.description %>
+      <% else %>
+        <%= element.title %>
+      <% end %>
+    </div>
+    <div class="ag-courses-item_date-box">
+      Start:
+      <span class="ag-courses-item_date">
+        <%= element.start %>
+      </span>
+    </div>
+  </a>
+</div>

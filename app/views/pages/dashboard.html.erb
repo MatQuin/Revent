@@ -1,18 +1,17 @@
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="past_events-tab" data-bs-toggle="tab" data-bs-target="#past_events" type="button" role="tab" aria-controls="past_events" aria-selected="true">Past 3vents</button>
+    <button class="nav-link" id="past_events-tab" data-bs-toggle="tab" data-bs-target="#past_events" type="button" role="tab" aria-controls="past_events" aria-selected="true">Past 3vents</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="ongoing_events-tab" data-bs-toggle="tab" data-bs-target="#ongoing_events" type="button" role="tab" aria-controls="ongoing_events" aria-selected="false">Ongoing 3v3nts</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="forthcoming_events-tab" data-bs-toggle="tab" data-bs-target="#forthcoming_events" type="button" role="tab" aria-controls="forthcoming_events" aria-selected="false">Forthcoming 3v3nts</button>
+    <button class="nav-link active" id="forthcoming_events-tab" data-bs-toggle="tab" data-bs-target="#forthcoming_events" type="button" role="tab" aria-controls="forthcoming_events" aria-selected="false">Forthcoming 3v3nts</button>
   </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
-
-  <div class="tab-pane fade show active" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
+  <div class="tab-pane fade show" id="past_events" role="tabpanel" aria-labelledby="past_events-tab">
     <h1 class="text-center"><font color="white">Past Events</font></h1>
     <div class="ag-format-container">
       <div class="ag-courses_box">
@@ -24,7 +23,8 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade show active" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
+  
+  <div class="tab-pane fade show" id="ongoing_events" role="tabpanel" aria-labelledby="ongoing_events-tab">
     <h1 class="text-center"><font color="white">Ongoing Events</font></h1>
     <div class="ag-format-container">
       <div class="ag-courses_box">
@@ -37,8 +37,8 @@
     </div>
   </div>
 
-  <div class="tab-pane fade" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
-    <h1 class="text-center"><font color="white">Future Events</font></h1>
+  <div class="tab-pane fade show active" id="forthcoming_events" role="tabpanel" aria-labelledby="forthcoming_events">
+    <h1 class="text-center"><font color="white">Forthcoming Events</font></h1>
     <div class="ag-format-container">
      <div class="ag-courses_box">
       <% @events.where("start > ?", Date.today).each do |event| %>
