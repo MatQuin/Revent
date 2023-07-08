@@ -1,52 +1,26 @@
 require "open-uri"
 
+GuestActivity.destroy_all
 Activity.destroy_all
 Guest.destroy_all
 Event.destroy_all
 User.destroy_all
 
-user = User.create!(email: 'matt@gmail.com', password: '123456')
+puts "create user"
 
+user_1 = User.create!(email: 'matt@gmail.com', password: '123456')
 file = URI.open("https://avatars.githubusercontent.com/u/123732355?v=4")
-user.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
+user_1.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
+
+puts "create user"
+
+user_2 = User.create!(email: 'aurora@gmail.com', password: '123456')
+file = URI.open("https://avatars.githubusercontent.com/u/123490989?v=4")
+user_2.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
+
+puts "create event"
 
 event = Event.create!(
-  title: 'Anniversaire de mamie',
-  status: 'to_come',
-  start: Date.today + 3,
-  end: Date.today + 4,
-  address: '16 Villa Gaudelet',
-  user_id: user.id
-)
-
-guest = Guest.create!(
-  user_id: user.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Courses de mamies',
-  start: Date.today,
-  end: Date.today + 2,
-  guest_id: guest.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Bingo',
-  start: Date.today,
-  end: Date.today + 3,
-  guest_id: guest.id,
-  event_id: event.id
-)
-
-activity = Activity.create!(
-  description: 'Bataille de cannes',
-  start: Date.today,
-  end: Date.today + 4,
-  guest_id: guest.id,
-  event_id: event.id
-)
   title: "Aurora's Wedding",
   start: 1.week.ago,
   end: 1.week.ago + 3,
