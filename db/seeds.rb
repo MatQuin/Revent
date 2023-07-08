@@ -14,36 +14,36 @@ event = Event.create!(
   title: 'Anniversaire de mamie',
   status: 'to_come',
   start: Date.today + 3,
-  end: Date.today + 4,
+  end:   Date.today + 4,
   address: '16 Villa Gaudelet',
   user_id: user.id
 )
 
 guest = Guest.create!(
-  user_id: user.id, 
+  user_id: user.id,
   event_id: event.id
 )
 
 activity = Activity.create!(
   description: 'Courses de mamies',
-  start: Date.today,
-  end: Date.today + 2,
+  start: Time.today,
+  end:   Time.today + 2,
   guest_id: guest.id,
   event_id: event.id
 )
 
 activity = Activity.create!(
   description: 'Bingo',
-  start: Date.today,
-  end: Date.today + 3,
+  start:  Time.today,
+  end:    Time.today + 3,
   guest_id: guest.id,
   event_id: event.id
 )
 
 activity = Activity.create!(
   description: 'Bataille de cannes',
-  start: Date.today,
-  end: Date.today + 4,
+  start:  Time.today,
+  end:    Time.today + 4,
   guest_id: guest.id,
   event_id: event.id
 )
