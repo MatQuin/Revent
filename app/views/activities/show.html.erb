@@ -13,7 +13,14 @@
       <h3>propositions</h3>
       <ul>
         <% @propositions.each do |proposition|%>
-          <li><%= proposition.description %></li>
+          <li>
+
+            <%= proposition.description %>
+            <%= proposition.upvotes.count %>
+              <%= link_to "upvote", proposition_upvotes_path(proposition), data: { turbo_method: :post } %>
+
+          </li>
+
         <% end %>
       </ul>
     </div>
@@ -23,5 +30,22 @@
       <%= f.submit "Submit", class:"buttonsuper" %>
     <% end %>
 
+    <div class="avatar" >
+      <h2>Participants</h2>
+
+      <% GuestActivity.where(activity: @activity).each do |guestactivity| %>
+        <%= cl_image_tag guestactivity.guest.user.avatar.key, height: 30, width: 30, crop: :fill %>
+      <% end %>
+
+      <% if @guest_activity.persisted? %>
+        <%= simple_form_for [@activity, @guest_activity], method: :delete do |f| %>
+          <%= f.submit "Quit Activity"%>
+        <% end %>
+      <% else %>
+        <%= simple_form_for [@activity, @guest_activity] do |f| %>
+          <%= f.submit "Join Activity"%>
+        <% end %>
+      <% end %>
+    </div>
   </div>
- </div>
+</div>

@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
     @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
-      redirect_to new_event_activity_path(@event), notice: 'Activity created! Feel free to create another one.'
+      redirect_to event_path(id: @event.id), notice: 'Activity created! Feel free to create another one.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,6 +33,8 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @propositions = @activity.propositions
     @proposition = Proposition.new
+    @guest = Guest.find_by(user: current_user, event: @activity.event)
+    @guest_activity = GuestActivity.find_or_initialize_by(guest_id: @guest.id, activity_id: @activity.id)
   end
 
   def update

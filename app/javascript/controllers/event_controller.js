@@ -3,11 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "title", "description", "start", "end", "photo"]
 
-  connect() {
-    console.log("Hello from our first Stimulus controller")
-    console.log(this.descriptionTarget)
-  }
-
   previewTitle(event) {
     this.titleTarget.innerText = event.target.value
   }
