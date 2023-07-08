@@ -12,9 +12,8 @@ user.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
 
 event = Event.create!(
   title: 'Anniversaire de mamie',
-  status: 'to_come',
-  start: Date.today + 3,
-  end: Date.today + 4,
+  start: 1.week.ago,
+  end: 1.week.ago + 3.days,
   address: '16 Villa Gaudelet',
   user_id: user.id
 )
@@ -26,24 +25,24 @@ guest = Guest.create!(
 
 activity = Activity.create!(
   description: 'Courses de mamies',
-  start: Date.today,
-  end: Date.today + 2,
+  start: 1.week.ago,
+  end: 1.week.ago + 1.day,
   guest_id: guest.id,
   event_id: event.id
 )
 
 activity = Activity.create!(
   description: 'Bingo',
-  start: Date.today,
-  end: Date.today + 3,
+  start: 1.week.ago,
+  end: 1.week.ago + 2.day,
   guest_id: guest.id,
   event_id: event.id
 )
 
 activity = Activity.create!(
   description: 'Bataille de cannes',
-  start: Date.today,
-  end: Date.today + 4,
+  start: 1.week.ago,
+  end: 1.week.ago + 3.day,
   guest_id: guest.id,
   event_id: event.id
 )
