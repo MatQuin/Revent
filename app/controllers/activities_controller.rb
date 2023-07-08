@@ -30,6 +30,9 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+    @propositions = @activity.propositions
+    @proposition = Proposition.new
   end
 
   def update

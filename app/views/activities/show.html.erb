@@ -2,19 +2,26 @@
   <div class="row">
     <div class="col-6">
       <div class="event-show-card">
-        <h1><%= activity.title %></h1>
-        <p class="event-show-title"><%= @activity.address %></p>
-    </div>
-    <div class="event-show-card">
-      <h3>Event details</h3>
-      <p> From <%= activity.start %> to <%= @activity.end %> </p>
-      <p><%= link_to "Invite Friends", "/guests/new", class: 'buttonsuper' %></p>
+        <h3>Event details</h3>
+        <p><%= @activity.description %></p>
+        <p> From <%= @activity.start %> to <%= @activity.end %> </p>
+
       </div>
     </div>
+
     <div class="col-6">
-      <div class="event-show-card">
-        <h3>Event Activities</h3>
-        <p><%= link_to "Add an activity", new_activity_path, class: 'buttonsuper' %></p>
-      </div>
+      <h3>propositions</h3>
+      <ul>
+        <% @propositions.each do |proposition|%>
+          <li><%= proposition.description %></li>
+        <% end %>
+      </ul>
     </div>
-</div>
+
+    <%= simple_form_for [@activity, @proposition] do |f| %>
+      <%= f.input :description,placeholder: "Description"%>
+      <%= f.submit "Submit", class:"buttonsuper" %>
+    <% end %>
+
+  </div>
+ </div>
