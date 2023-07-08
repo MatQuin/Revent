@@ -13,11 +13,10 @@ class PropositionsController < ApplicationController
 
   def create
     @activity = Activity.find(params[:activity_id])
-    @proposition = Proposition.new(activity_params)
-    @proposition.guest = Guest.where(user: current_user, event: @activity.event).first
-    @proposition.activity = @activity
+    @proposition = Proposition.new(description: proposition_params[:description], activity_id: @activity.id)
+    @proposition.guest = Guest.find_by(user: current_user, event: @activity.event)
     if @proposition.save
-      redirect_to new_activity_proposition_path(@activity)
+      redirect_to event_activities_path(event_id: @activity.event.id), notice: 'Proposition created!'
     else
       render :new, status: :unprocessable_entity
     end

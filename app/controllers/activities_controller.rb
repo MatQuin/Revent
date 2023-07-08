@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
     @event = Event.find(params[:event_id])
     @activities = @event.activities
     @guest_activity = GuestActivity.new
+    @proposition = Proposition.new
   end
 
   def new
