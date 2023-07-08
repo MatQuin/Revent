@@ -11,17 +11,10 @@
         <p><%= activity.end %></p>
       </div>
       <div class="col-sm" >
-        <h2>End</h2>
-        <p><%= activity.end %></p>
-      </div>
-      <div class="col-sm" >
-        <h2>Participants</h2>
-        <% GuestActivity.where(activity: activity).each do |guestactivity| %>
-          <%= guestactivity.guest.user.email %>
-        <% end %>
-        <%= simple_form_for [activity, @guest_activity] do |f| %>
-          <%= f.submit "Like"%>
-        <% end %>
+        <h2>Vote</h2>
+          <%= simple_form_for [proposition, @guest_activity] do |f| %>
+            <%= f.submit "Love this"%>
+          <% end %>
       </div>
     </div>
   <% end %>

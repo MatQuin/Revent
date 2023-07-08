@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
     @event = Event.find(params[:event_id])
     @activities = @event.activities
     @guest_activity = GuestActivity.new
+    @proposition = Proposition.new
   end
 
   def new
@@ -19,7 +20,7 @@ class ActivitiesController < ApplicationController
     @event = Event.find(params[:event_id])
     @activity.event = @event
     if @activity.save
-      redirect_to new_event_activity_path(@event)
+      redirect_to new_event_activity_path(@event), notice: 'Activity created! Feel free to create another one.'
     else
       render :new, status: :unprocessable_entity
     end

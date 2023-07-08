@@ -1,7 +1,9 @@
+<!-- Button trigger modal -->
 <button class="buttonsuper" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <p> Add </p>
+<p> Add <%= description %> </p>
 </button>
 
+<!-- Modal tout les databs je garde , les class, id rajouter oui, retirer non -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -10,11 +12,12 @@
         <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [activity, proposition] do |f| %>
-          <%= f.input :description %>
+        <%= simple_form_for [vote, proposition] do |f| %>
+          <%= f.association :activity, collection: User.all.order(:description), label_method: :description, value_method: :id %>
           <%= f.submit "Submit", class:"buttonsuper" %>
         <% end %>
       </div>
     </div>
   </div>
+
 </div>
