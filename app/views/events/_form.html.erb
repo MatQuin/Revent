@@ -15,6 +15,16 @@
                       action: "change->event#previewDescription"
                     }
                   } %>
+
+    <%= f.input :address,
+                  placeholder: "Address",
+                  rows: 4,
+                  input_html: {
+                    data: {
+                      action: "change->event#previewAddress"
+                    }
+                  } %>
+
   <%= f.input :start,
                 html5: true,
                 rows: 4,
