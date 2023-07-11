@@ -34,7 +34,7 @@ class ActivitiesController < ApplicationController
     @propositions = @activity.propositions
     @proposition = Proposition.new
     @guest = Guest.find_by(user: current_user, event: @activity.event)
-    @guest_activity = GuestActivity.find_or_initialize_by(guest_id: @guest.id, activity_id: @activity.id)
+    @guest_activity = GuestActivity.find_or_initialize_by(guest: @guest, activity: @activity)
   end
 
   def update
