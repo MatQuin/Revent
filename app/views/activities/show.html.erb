@@ -17,8 +17,7 @@
 
             <%= proposition.description %>
             <%= proposition.upvotes.count %>
-              <%= link_to "upvote", proposition_upvotes_path(proposition), data: { turbo_method: :post } %>
-
+               <p class="fa-solid fa-thumbs-up"><%= link_to " +", proposition_upvotes_path(proposition), data: { turbo_method: :post } %></p>
           </li>
 
         <% end %>
