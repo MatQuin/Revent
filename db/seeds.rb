@@ -86,6 +86,14 @@ event = Event.create!(
   user_id: user_1.id
 )
 
+event = Event.create!(
+  title: "Granny EHPAD Party",
+  start: 1.week.after + 2,
+  end: 1.week.after + 3,
+  address: '54-56 Avenue Hoche, 75008 Paris ',
+  user_id: user_1.id
+)
+
 puts "create guests"
 
 guest_1 = Guest.create!(
