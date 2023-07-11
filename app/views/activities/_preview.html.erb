@@ -6,7 +6,9 @@
     <h2><%= event.title || '[Add a title]'%></h2>
     <h2 ><%= event.description || '[Add a description]'%></h2><br>
     <div data-event-target="description"> Activity's description : <br><%= activity.description || '[Add a description]' %></div>
-    <div class="ag-courses_item" data-event-target="start"> <%= activity.start || '[Add a starting date]' %></div>
-    <div class="ag-courses_item" data-event-target="end"> <%= activity.end || '[Add an ending date]' %></div>
+<div class="row">
+ <div class="ag-courses_item" data-event-target="start"> <%= activity.start || '[Starting at]' %></div>
+    <div class="ag-courses_item" data-event-target="end"> <%= activity.end || '[Ending at]' %></div>
+  </div>
   </div>
 </div>
