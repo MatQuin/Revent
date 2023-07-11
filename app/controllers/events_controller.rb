@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
+    @event.guests.build(user: current_user)
     if @event.save
       redirect_to new_event_guest_path(@event)
     else
