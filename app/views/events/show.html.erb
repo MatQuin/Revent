@@ -11,6 +11,11 @@
         <p> From <%= @event.start %> to <%= @event.end %> </p>
         <p><%= @event.description %></p>
         <p class="my-3"><%= link_to "Invite Friends", "/guests/new", class: 'buttonsuper'%></p>
+        <div style="width: 100%; height: 350px; margin-top:3rem;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
     <div class="col-6">
@@ -23,11 +28,6 @@
           <% end %>
         <% end %>
         <p class="my-3"><%= link_to "Add an activity", new_event_activity_path(@event), class: 'buttonsuper' %></p>
-        <div style="width: 100%; height: 600px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
       </div>
     </div>
   </div>
