@@ -1,13 +1,12 @@
 <div id="event-preview" class="col-8">
   <div class="card">
     <%= render "events/preview", event: @event %>
-       <p>Guests:</p>
+       <h4>Guests:</h4>
         <% @event.guests.each do |guest| %>
-      <%= guest.user.email %>
+      <%= cl_image_tag guest.user.avatar.key, height: 50, width: 50, crop: :fill %>
       <% end %>
     <div class="d-grid gap-2 col-4 mx-auto"></div>
      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
-
   </div>
 </div>
 <div class="d-grid gap-2 col-4 mx-auto">
