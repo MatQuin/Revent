@@ -2,9 +2,10 @@
   <div class="card">
     <%= render "events/preview", event: @event %>
        <h4>Guests:</h4>
+        <div style="display:flex, gap:20px">
         <% @event.guests.each do |guest| %>
-      <%= cl_image_tag guest.user.avatar.key, height: 50, width: 50, crop: :fill %>
-      <% end %>
+     <%= cl_image_tag guest.user.avatar.key, class:"avatar" %>
+      <% end %></div>
     <div class="d-grid gap-2 col-4 mx-auto"></div>
      <%= render 'events/modal_guest', name: "Guest", guest: @guest, event: @event %>
   </div>
