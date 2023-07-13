@@ -28,7 +28,7 @@
   <div class="event-show-card mt-5">
     <h3>Event Activities</h3>
     <% @event.activities.order(end: :asc).each.with_index do |activity, index| %>
-    <%= link_to event_activity_path(@event, activity), class:  "activity-link" do  %>
+    <p class="event-hover-activity"><%= link_to event_activity_path(@event, activity), class:  "activity-link" do  %>
     <p><%= index + 1 %> - <%= activity.description %></p>
       <% end %>
       <% end %>
