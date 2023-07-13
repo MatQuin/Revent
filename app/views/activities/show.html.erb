@@ -4,7 +4,7 @@
       <div class="event-show-card">
         <h3><%= @activity.description.capitalize %></h3>
 
-        <p> From <%= @activity.start %> to <%= @activity.end %> </p>
+        <p> From <%= @activity.start.strftime("%I:%M%p") %> to <%= @activity.end.strftime("%I:%M%p")  %> </p>
         <%= simple_form_for [@activity, @proposition] do |f| %>
           <%= f.input :description,placeholder: "I'll propose..."%>
           <%= f.submit "Submit", class:"buttonsuper" %>
