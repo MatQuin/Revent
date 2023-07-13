@@ -2,36 +2,31 @@
   <div class="row">
     <div class="col-6">
       <div class="event-show-card">
-        <h3>Event details</h3>
-        <p><%= @activity.description %></p>
-        <p> From <%= @activity.start %> to <%= @activity.end %> </p>
+        <h3><%= @activity.description.capitalize %></h3>
 
+        <p> From <%= @activity.start %> to <%= @activity.end %> </p>
+        <%= simple_form_for [@activity, @proposition] do |f| %>
+          <%= f.input :description,placeholder: "I'll propose..."%>
+          <%= f.submit "Submit", class:"buttonsuper" %>
+        <% end %>
       </div>
     </div>
 
     <div class="col-6">
-      <h3>propositions</h3>
+      <h3>Propositions</h3>
       <ul>
         <% @propositions.each do |proposition|%>
           <li>
-
-            <%= proposition.description %>
+            <%= proposition.description.capitalize %>
             <%= proposition.upvotes.count %>
-              <%= link_to "upvote", proposition_upvotes_path(proposition), data: { turbo_method: :post } %>
-
+            <p class="fa-solid fa-thumbs-up"><%= link_to " +", proposition_upvotes_path(proposition), data: { turbo_method: :post } %></p>
           </li>
-
         <% end %>
       </ul>
     </div>
 
-    <%= simple_form_for [@activity, @proposition] do |f| %>
-      <%= f.input :description,placeholder: "Description"%>
-      <%= f.submit "Submit", class:"buttonsuper" %>
-    <% end %>
-
-    <div class="avatar" >
-      <h2>Participants</h2>
+    <div class="avatar">
+      <h2>Guests:</h2>
 
       <% GuestActivity.where(activity: @activity).each do |guestactivity| %>
         <%= cl_image_tag guestactivity.guest.user.avatar.key, height: 30, width: 30, crop: :fill %>
