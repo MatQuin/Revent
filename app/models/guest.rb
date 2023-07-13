@@ -5,5 +5,5 @@ class Guest < ApplicationRecord
   has_many :propositions, dependent: :destroy
   has_many :guest_activities, dependent: :destroy
   has_many :activities, through: :guest_activities
-  has_many :upvotes
+  has_many :upvotes, dependent: :destroy
 end

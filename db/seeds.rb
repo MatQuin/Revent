@@ -70,6 +70,8 @@ event = Event.create!(
   user_id: user_1.id
 )
 
+puts "create event"
+
 event = Event.create!(
   title: "Final Demo",
   start: 0.week.ago,
@@ -78,21 +80,27 @@ event = Event.create!(
   user_id: user_1.id
 )
 
+puts "create event"
+
 event = Event.create!(
   title: "Mystery Party",
-  start: 1.week.after + 2,
-  end: 1.week.after + 3,
+  start: 3.week.ago + 2,
+  end: 3.week.ago + 3,
   address: '62 Avenue Parmentier, 75011 Paris ',
   user_id: user_1.id
 )
 
+puts "create event"
+
 event = Event.create!(
-  title: "Granny EHPAD Party",
+  title: "Granny 80's Party",
   start: 1.week.after + 2,
   end: 1.week.after + 3,
   address: '54-56 Avenue Hoche, 75008 Paris ',
   user_id: user_1.id
 )
+file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv9DAwsNsP3NOVM9J1W_YlINO6TdF4YDhjpw&usqp=CAU")
+event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpg")
 
 puts "create guests"
 
