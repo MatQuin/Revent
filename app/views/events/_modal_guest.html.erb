@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 <button class="buttonsuper" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<p> Add <%= name %> </p>
+ Add <%= name %>
 </button>
 
 <!-- Modal tout les databs je garde , les class, id rajouter oui, retirer non -->
@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [event, guest] do |f| %>
-          <%= f.association :user, collection: User.all.order(:email), label_method: :email, value_method: :id %>
+          <%= f.association :user, collection: User.all.order(:email), label_method: :email, value_method: :id, label: false %>
           <%= f.submit "Submit", class:"buttonsuper" %>
         <% end %>
       </div>

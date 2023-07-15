@@ -9,7 +9,7 @@
   <div class="row mt-3">
     <div class="col-6">
       <div class="event-show-card">
-        <h1><%= @event.title %></h1>
+        <h1><%= @event.title.capitalize %></h1>
         <p class="event-show-title"><%= @event.address %></p>
           <div style="width: 90%; height: 300px; border-radius: 10px;"
             data-controller="map"
@@ -21,7 +21,7 @@
   <div class="col-6 mt-4">
     <div class="event-show-card">
       <h3>Event details</h3>
-      <p> From <%= @event.start %> to <%= @event.end %> </p>
+      <p> From <%= @event.start.strftime("%A, %b %d") %> to <%= @event.end.strftime("%A, %b %d") %> </p>
       <p><%= @event.description %></p>
       <p class="my-3"><%= link_to "Invite Friends", new_event_guest_path(@event), class: 'buttonsuper'%></p>
     </div>
@@ -29,7 +29,7 @@
     <h3>Event Activities</h3>
     <% @event.activities.order(end: :asc).each.with_index do |activity, index| %>
     <p class="event-hover-activity"><%= link_to event_activity_path(@event, activity), class:  "activity-link" do  %>
-    <p><%= index + 1 %> - <%= activity.description %></p>
+    <p style="cursor: pointer;"><%= index + 1 %> - <%= activity.description %></p>
       <% end %>
       <% end %>
     <p class="my-3"><%= link_to "Add an activity", new_event_activity_path(@event), class: 'buttonsuper' %></p>
