@@ -99,18 +99,13 @@ event = Event.create!(
   address: '54-56 Avenue Hoche, 75008 Paris ',
   user_id: user_1.id
 )
-file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv9DAwsNsP3NOVM9J1W_YlINO6TdF4YDhjpw&usqp=CAU")
+file = URI.open("https://cdn.trendhunterstatic.com/phpthumbnails/40/40884/40884_1_600.jpeg?auto=webp")
 event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpg")
 
 puts "create guests"
 
 guest_1 = Guest.create!(
   user_id: user_1.id,
-  event_id: event.id
-)
-
-guest_2 = Guest.create!(
-  user_id: user_2.id,
   event_id: event.id
 )
 
@@ -126,90 +121,10 @@ guest_4 = Guest.create!(
 
 puts "create activity"
 
-dj_activity = Activity.create!(
-  description: 'DJ set',
+restaurant_activity = Activity.create!(
+  description: 'Trouver un restaurant',
   start: Time.now,
   end: Time.now + 1,
   guest_id: guest_1.id,
   event_id: event.id
-)
-
-puts "create propositions"
-
-Proposition.create!(
-  activity_id: dj_activity.id,
-  guest_id: guest_1.id,
-  description: 'play Maroon 5'
-)
-
-Proposition.create!(
-  activity_id: dj_activity.id,
-  guest_id: guest_1.id,
-  description: 'play Michel Sardou'
-)
-
-Proposition.create!(
-  activity_id: dj_activity.id,
-  guest_id: guest_2.id,
-  description: 'play ABBA'
-)
-
-puts "create activity"
-
-catering_activity = Activity.create!(
-  description: 'Catering',
-  start: Time.now,
-  end: Time.now + 2,
-  guest_id: guest_1.id,
-  event_id: event.id
-)
-
-puts "create propositions"
-
-Proposition.create!(
-  activity_id: catering_activity.id,
-  guest_id: guest_1.id,
-  description: 'petits fours'
-)
-
-Proposition.create!(
-  activity_id: catering_activity.id,
-  guest_id: guest_1.id,
-  description: 'pièce montée'
-)
-
-Proposition.create!(
-  activity_id: catering_activity.id,
-  guest_id: guest_2.id,
-  description: 'booze'
-)
-
-puts "create activity"
-
-shooting_activity = Activity.create!(
-  description: 'Photo shooting',
-  start: Time.now,
-  end: Time.now + 3,
-  guest_id: guest_1.id,
-  event_id: event.id
-)
-
-puts "create propositions"
-
-Proposition.create!(
-  activity_id: shooting_activity.id,
-  guest_id: guest_1.id,
-  description: 'on the beach'
-)
-
-Proposition.create!(
-  activity_id: shooting_activity.id,
-  guest_id: guest_1.id,
-  description: 'on the rooftop'
-)
-
-Proposition.create!(
-  activity_id: shooting_activity.id,
-  guest_id: guest_2.id,
-  description: 'after midnight'
 )
