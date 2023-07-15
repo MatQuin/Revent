@@ -3,44 +3,43 @@
     <div class="col-6">
       <div class="event-show-card">
         <h3><%= @activity.description.capitalize %></h3>
-
         <p> From <%= @activity.start.strftime("%I:%M%p") %> to <%= @activity.end.strftime("%I:%M%p")  %> </p>
-        <%= simple_form_for [@activity, @proposition] do |f| %>
-          <%= f.input :description,placeholder: "I'll propose..."%>
-          <%= f.submit "Submit", class:"buttonsuper" %>
-        <% end %>
+
+          <div class="avatar">
+            <h3>Activity owners:</h3>
+            <% GuestActivity.where(activity: @activity).each do |guestactivity| %>
+            <%= cl_image_tag guestactivity.guest.user.avatar.key, height: 30, width: 30, crop: :fill %>
+            <% end %>
+
+            <% if @guest_activity.persisted? %>
+            <%= simple_form_for [@activity, @guest_activity], method: :delete do |f| %>
+            <%= f.submit "Quit Activity", class:"buttonsuper"%>
+            <% end %>
+            <% else %>
+            <%= simple_form_for [@activity, @guest_activity] do |f| %>
+            <%= f.submit "Join Activity",class:"buttonsuper"%>
+            <% end %>
+            <% end %>
+          </div>
+
       </div>
     </div>
 
     <div class="col-6">
       <h3>Propositions</h3>
-      <ul>
-        <% @propositions.each do |proposition|%>
-          <li>
-            <%= proposition.description.capitalize %>
-            <%= proposition.upvotes.count %>
-            <p class="fa-solid fa-thumbs-up"><%= link_to " +", proposition_upvotes_path(proposition), data: { turbo_method: :post } %></p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="avatar">
-      <h2>Guests:</h2>
-
-      <% GuestActivity.where(activity: @activity).each do |guestactivity| %>
-        <%= cl_image_tag guestactivity.guest.user.avatar.key, height: 30, width: 30, crop: :fill %>
-      <% end %>
-
-      <% if @guest_activity.persisted? %>
-        <%= simple_form_for [@activity, @guest_activity], method: :delete do |f| %>
-          <%= f.submit "Quit Activity"%>
-        <% end %>
-      <% else %>
-        <%= simple_form_for [@activity, @guest_activity] do |f| %>
-          <%= f.submit "Join Activity"%>
-        <% end %>
-      <% end %>
+        <ul>
+          <% @propositions.each do |proposition|%>
+            <li>
+              <%= proposition.description.capitalize %>
+              <%= proposition.upvotes.count %>
+              <p class="fa-solid fa-thumbs-up"><%= link_to " +", proposition_upvotes_path(proposition), data: { turbo_method: :post } %></p>
+            </li>
+          <% end %>
+          <%= simple_form_for [@activity, @proposition] do |f| %>
+          <%= f.input :description,placeholder: "I'll propose..."%>
+          <%= f.submit "Submit", class:"buttonsuper" %>
+          <% end %>
+        </ul>
     </div>
   </div>
 </div>
