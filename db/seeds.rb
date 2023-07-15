@@ -102,6 +102,19 @@ event = Event.create!(
 file = URI.open("https://cdn.trendhunterstatic.com/phpthumbnails/40/40884/40884_1_600.jpeg?auto=webp")
 event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpg")
 
+puts "create event"
+
+event = Event.create!(
+  title: " Batch Party",
+  description: 'Célébrons ensemble la fin de vos 24 semaines intenses et votre entrée dans la grande communauté des alumni du Wagon batches #1170 & #1171 !',
+  start: 0.week.after + 0,
+  end: 0.week.after + 1,
+  address: '3 Rue Crespin du Gast, 75011 Paris ',
+  user_id: user_1.id
+)
+file = URI.open("https://d24wuq6o951i2g.cloudfront.net/img/events/id/458/458182812/assets/788d5dac325061b7cc322b967caea2c1.Capture-d-e-cran-2021-08-04-a-11.22.06.png")
+event.photo.attach(io: file, filename: "photo.png", content_type: "image/png")
+
 puts "create guests"
 
 guest_1 = Guest.create!(
@@ -121,8 +134,8 @@ guest_4 = Guest.create!(
 
 puts "create activity"
 
-restaurant_activity = Activity.create!(
-  description: 'Trouver un restaurant',
+musique_activity = Activity.create!(
+  description: 'Choisir des musiques pour la playlist',
   start: Time.now,
   end: Time.now + 1,
   guest_id: guest_1.id,
