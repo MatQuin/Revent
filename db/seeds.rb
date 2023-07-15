@@ -8,21 +8,21 @@ User.destroy_all
 
 puts "create user"
 
-user_1 = User.create!(email: 'matt@gmail.com', password: '123456')
-file = URI.open("https://avatars.githubusercontent.com/u/123732355?v=4")
+user_1 = User.create!(email: 'pierre@gmail.com', password: '123456')
+file = URI.open("https://avatars.githubusercontent.com/u/123462676?v=4")
 user_1.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
+
+puts "create user"
+
+user_3 = User.create!(email: 'matt@gmail.com', password: '123456')
+file = URI.open("https://avatars.githubusercontent.com/u/123732355?v=4")
+user_3.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
 
 puts "create user"
 
 user_2 = User.create!(email: 'aurora@gmail.com', password: '123456')
 file = URI.open("https://avatars.githubusercontent.com/u/123490989?v=4")
 user_2.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
-
-puts "create user"
-
-user_3 = User.create!(email: 'pierre@gmail.com', password: '123456')
-file = URI.open("https://avatars.githubusercontent.com/u/123462676?v=4")
-user_3.avatar.attach(io: file, filename: "avatar.png", content_type: "image/png")
 
 puts "create user"
 
