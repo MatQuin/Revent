@@ -6,7 +6,7 @@
   <% end %>
 </div>
 
-  <h2 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h2>
+  <h1 class="ag-courses_box" data-event-target="title"><%= event.title || '[Add a title]'%></h1>
 
 <h3> Description of the event : </h3>
 
@@ -23,14 +23,18 @@
     <p> <i class="fa fa-calendar" aria-hidden="true"></i> </p>
   </div>
   <div class="p-2">
-    <div class="ag-courses_item" data-event-target="start"> <%= event.start %>
+    <div class="ag-courses_item" data-event-target="start"> <% unless event.start.nil? %>
+    <%= event.start.strftime("%A, %b %d") %>
+    <% end %>
     </div>
   </div>
   <div class="p-2">
     <p> to </p>
   </div>
   <div class="p-2">
-    <div  class="ag-courses_item"  data-event-target="end"><%= event.end %>
+    <div  class="ag-courses_item"  data-event-target="end"> <%unless event.end.nil? %>
+    <%= event.end.strftime("%A, %b %d") %>
+   <% end %>
     </div>
   </div>
 </div>

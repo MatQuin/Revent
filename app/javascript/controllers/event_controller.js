@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "title", "description", "start", "end", "photo"]
+  static targets = [ "title", "description", "start", "end", "photo","address"]
 
   previewTitle(event) {
     this.titleTarget.innerText = event.target.value
@@ -16,7 +16,7 @@ export default class extends Controller {
     this.startTarget.innerText = event.target.value
   }
 
-  previewAdrress(event) {
+  previewAddress(event) {
     this.addressTarget.innerText = event.target.value
   }
 
